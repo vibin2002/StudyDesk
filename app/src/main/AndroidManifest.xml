@@ -23,7 +23,10 @@
             android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
+        <activity
+            android:name=".ui.student.StudentMainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,17 +1,18 @@
 package com.killerinstinct.studydesk.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.ActivitySignupBinding
 import com.killerinstinct.studydesk.viewmodel.SignUpViewModel
 
 class SignupActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySignupBinding
-    val signUpViewModel: SignUpViewModel by viewModels()
+    private val signUpViewModel: SignUpViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,16 +21,24 @@ class SignupActivity : AppCompatActivity() {
 
         binding.infoSave.setOnClickListener {
             signUpViewModel.signUpWithCustomAuth(
-                binding.tutorEmail.text.toString(),
-                binding.tutorPasswordr.text.toString()
-            )
+                binding.suName.text.toString(),
+                binding.suEmail.text.toString(),
+                binding.suPassword.text.toString(),
+                getDesignation()
+            ) { signUpState ->
+                Toast.makeText(this, signUpState, Toast.LENGTH_SHORT).show()
+            }
         }
 
-        signUpViewModel.isUserCreated.observe(this,{
-            if (it){
-                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-            }
-        })
+        binding.tvSignin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
 
+    }
+
+    private fun getDesignation(): String {
+        val id = binding.radioGrp.checkedRadioButtonId
+        return findViewById<RadioButton>(id).text.toString().trim()
     }
 }

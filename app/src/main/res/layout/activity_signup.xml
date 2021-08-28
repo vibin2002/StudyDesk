@@ -15,8 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="27.57dp">
+            android:layout_marginTop="27.57dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/logo"
@@ -30,114 +30,166 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textStyle="bold"
+                android:text="Signup"
                 android:textColor="@color/black"
-                android:text="Tutor Signup"
-                android:textSize="26dp" />
+                android:textSize="26dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="19dp"
+            android:text="Username*"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/su_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/background"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="Enter Username"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:textSize="14dp" />
+
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="19dp"
             android:layout_marginStart="26dp"
+            android:layout_marginTop="19dp"
             android:text="Email*"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/tutorEmail"
+            android:id="@+id/su_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="26dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
-            android:gravity="center_vertical"
-            android:paddingRight="10dp"
-            android:hint="Enter Email"
             android:background="@drawable/background"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
-            android:textSize="14dp"/>
+            android:paddingRight="10dp"
+            android:textSize="14dp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="19dp"
             android:layout_marginStart="26dp"
+            android:layout_marginTop="19dp"
             android:text="Password*"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/tutorPasswordr"
+            android:id="@+id/su_Password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="26dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
+            android:background="@drawable/background"
+            android:ems="10"
             android:gravity="center_vertical"
             android:hint="Enter password"
-            android:paddingRight="10dp"
-            android:background="@drawable/background"
+            android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textSize="14dp"/>
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="19dp"-->
-        <!--            android:layout_marginStart="26dp"-->
-        <!--            android:text="Confirm Password"-->
-        <!--            android:textColor="@color/black"-->
-        <!--            android:fontFamily="@font/nunito"-->
-        <!--            android:textStyle="bold"-->
-        <!--            android:textSize="14dp"/>-->
+            android:paddingRight="10dp"
+            android:textSize="14dp" />
 
-        <!--        <EditText-->
-        <!--            android:id="@+id/tutor_confrm_passrd"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="50dp"-->
-        <!--            android:ems="10"-->
-        <!--            android:inputType="textPersonName"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:layout_marginStart="26dp"-->
-        <!--            android:layout_marginEnd="24dp"-->
-        <!--            android:gravity="center_vertical"-->
-        <!--            android:hint="Re-enter Password"-->
-        <!--            android:paddingRight="10dp"-->
-        <!--            android:background="@drawable/background"-->
-        <!--            android:paddingLeft="20dp"-->
-        <!--            android:textSize="14dp"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioGroup
+                android:id="@+id/radioGrp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="28dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:weightSum="100"
+                android:layout_marginEnd="28dp">
+
+                <RadioButton
+                    android:layout_weight="50"
+                    android:id="@+id/radioButtonstudent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/text_blue"
+                    android:text="Student"
+                    android:textColor="@color/text_blue"
+                    android:textSize="16dp" />
+
+                <RadioButton
+                    android:layout_weight="50"
+                    android:id="@+id/radioButtontutor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/text_blue"
+                    android:text="Tutor"
+                    android:textColor="@color/text_blue"
+                    android:textSize="16dp" />
+            </RadioGroup>
+        </LinearLayout>
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/info_save"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="46dp"
             android:layout_marginStart="23.83dp"
+            android:layout_marginTop="46dp"
             android:layout_marginEnd="23.83dp"
             android:layout_marginBottom="34dp"
-            android:text="Signup"
             android:background="@drawable/background_solid"
-            android:textSize="18dp"
+            android:gravity="center"
             android:paddingStart="120dp"
             android:paddingEnd="120dp"
-            android:textColor="@color/white"
+            android:text="Signup"
             android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tv_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already have a account? Sign in"
             android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             />
 
     </LinearLayout>
+
+
+
 
 
 </ScrollView>

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.killerinstinct.studydesk.ui.student.databinding.FragmentSlideshowBinding
+import com.killerinstinct.studydesk.databinding.FragmentSlideshowBinding
 
 class SlideshowFragment : Fragment() {
 

@@ -8,11 +8,14 @@
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/drawable/background.xml" value="0.22395833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/drawable/background_solid.xml" value="0.22395833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/font/nunito.xml" value="0.23435897435897435" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_login.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_main.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_signup.xml" value="0.19270833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_studebt_main.xml" value="0.19270833333333334" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_student_main.xml" value="0.11145833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/app_bar_student_main.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/content_student_main.xml" value="0.2078125" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/nav_header_student_main.xml" value="0.2078125" />
       </map>
     </option>
