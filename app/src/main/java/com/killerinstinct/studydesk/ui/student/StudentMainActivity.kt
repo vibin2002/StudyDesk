@@ -11,13 +11,16 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.ActivityStudentMainBinding
+import com.killerinstinct.studydesk.databinding.NavHeaderStudentMainBinding
 
 class StudentMainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityStudentMainBinding
+    private val currUser = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,7 @@ class StudentMainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        val drawerLayout: DrawerLayout = binding.drawerLayout
+        val drawerLayout: DrawerLayout = binding.studentDrawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_student_main)
         // Passing each menu ID as a set of Ids because each
@@ -41,6 +44,11 @@ class StudentMainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val headerView = navView.getHeaderView(0)
+        val headerBinding = NavHeaderStudentMainBinding.bind(headerView)
+        headerBinding.drawerName.text = currUser?.displayName ?: "NULL"
+        headerBinding.drawerEmail.text = currUser?.email ?: "NULL"
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

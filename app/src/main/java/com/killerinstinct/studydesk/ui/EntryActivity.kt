@@ -18,6 +18,7 @@ import com.killerinstinct.studydesk.data.models.Student
 import com.killerinstinct.studydesk.data.models.Tutor
 import com.killerinstinct.studydesk.databinding.ActivityEntryBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainActivity
+import com.killerinstinct.studydesk.ui.tutor.TutorMainActivity
 
 
 class EntryActivity : AppCompatActivity() {
@@ -31,7 +32,10 @@ class EntryActivity : AppCompatActivity() {
         super.onStart()
         val user = mAuth.currentUser
         if (user != null) {
+            //if(isStudent)
             val intent = Intent(applicationContext, StudentMainActivity::class.java)
+            //else if(isTutor)
+            //startActivity for tutor
             startActivity(intent)
         }
     }
@@ -101,6 +105,8 @@ class EntryActivity : AppCompatActivity() {
                                 .set(student)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "SignUp successful", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(applicationContext, StudentMainActivity::class.java)
+                                    startActivity(intent)
                                 }.addOnFailureListener {
                                     Toast.makeText(this, "SignUp failure", Toast.LENGTH_SHORT).show()
                                 }
@@ -115,13 +121,14 @@ class EntryActivity : AppCompatActivity() {
                                 .set(tutor)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "SignUp successful", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(applicationContext, TutorMainActivity::class.java)
+                                    startActivity(intent)
                                 }.addOnFailureListener {
                                     Toast.makeText(this, "SignUp failure", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     }
-                    val intent = Intent(applicationContext, StudentMainActivity::class.java)
-                    startActivity(intent)
+
                 } else {
                     Toast.makeText(this, "Sorry auth failed.", Toast.LENGTH_SHORT)
                         .show()

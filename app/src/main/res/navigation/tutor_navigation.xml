@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tutor_navigation"
+    app:startDestination="@id/tutorHomeFragment">
+
+    <fragment
+        android:id="@+id/tutorHomeFragment"
+        android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.TutorHomeFragment"
+        android:label="fragment_tutor_home"
+        tools:layout="@layout/fragment_tutor_home" />
+    <fragment
+        android:id="@+id/tutorDashBoardFragment"
+        android:name="com.killerinstinct.studydesk.ui.tutor.drawer.dashboard.TutorDashBoardFragment"
+        android:label="fragment_tutor_dash_board"
+        tools:layout="@layout/fragment_tutor_dash_board" />
+</navigation>
