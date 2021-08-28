@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "643435721120",
+    "project_id": "studydesk-62dbd",
+    "storage_bucket": "studydesk-62dbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643435721120:android:e57fec63c0c8644bb734c5",
+        "android_client_info": {
+          "package_name": "com.killerinstinct.studydesk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643435721120-hetb2usprtlll4ck8lhd0jrjtv91qqt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLwRjuH9Y0u64jpdIA-6TJh_KOxELV6VU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643435721120-hetb2usprtlll4ck8lhd0jrjtv91qqt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
