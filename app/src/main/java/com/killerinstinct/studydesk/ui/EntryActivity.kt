@@ -2,6 +2,7 @@ package com.killerinstinct.studydesk.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -11,7 +12,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import com.killerinstinct.studydesk.R.*
+import com.killerinstinct.studydesk.data.models.Student
+import com.killerinstinct.studydesk.data.models.Tutor
 import com.killerinstinct.studydesk.databinding.ActivityEntryBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainActivity
 
@@ -19,12 +23,13 @@ import com.killerinstinct.studydesk.ui.student.StudentMainActivity
 class EntryActivity : AppCompatActivity() {
 
     private var mGoogleSignInClient: GoogleSignInClient? = null
-    private var mAuth: FirebaseAuth? = null
+    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
     private lateinit var binding: ActivityEntryBinding
 
     override fun onStart() {
         super.onStart()
-        val user = mAuth!!.currentUser
+        val user = mAuth.currentUser
         if (user != null) {
             val intent = Intent(applicationContext, StudentMainActivity::class.java)
             startActivity(intent)
@@ -35,7 +40,6 @@ class EntryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEntryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        mAuth = FirebaseAuth.getInstance()
         createRequest()
         binding.googleSignIn.setOnClickListener {
             signIn()
@@ -80,12 +84,42 @@ class EntryActivity : AppCompatActivity() {
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        mAuth!!.signInWithCredential(credential)
+        mAuth.signInWithCredential(credential)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    val user = mAuth!!.currentUser
-
+                    val user = mAuth.currentUser
+                    val name = user?.displayName.toString()
+                    val designation = getDesignation()
+                    if (designation == "Student"){
+                        val student = Student(
+                            name, listOf(), listOf(), listOf()
+                        )
+                        mAuth.currentUser?.let { it1 ->
+                            db.collection("Students")
+                                .document(it1.uid)
+                                .set(student)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "SignUp successful", Toast.LENGTH_SHORT).show()
+                                }.addOnFailureListener {
+                                    Toast.makeText(this, "SignUp failure", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    }else if(designation == "Tutor"){
+                        val tutor = Tutor(
+                            name, listOf(), listOf(), listOf()
+                        )
+                        mAuth.currentUser?.let { it1 ->
+                            db.collection("Tutors")
+                                .document(it1.uid)
+                                .set(tutor)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "SignUp successful", Toast.LENGTH_SHORT).show()
+                                }.addOnFailureListener {
+                                    Toast.makeText(this, "SignUp failure", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    }
                     val intent = Intent(applicationContext, StudentMainActivity::class.java)
                     startActivity(intent)
                 } else {
@@ -101,10 +135,9 @@ class EntryActivity : AppCompatActivity() {
         private const val RC_SIGN_IN = 123
     }
 
+    private fun getDesignation(): String {
+        val id = binding.entryRadioGrp.checkedRadioButtonId
+        return findViewById<RadioButton>(id).text.toString().trim()
+    }
 
 }
-
-
-
-
-
