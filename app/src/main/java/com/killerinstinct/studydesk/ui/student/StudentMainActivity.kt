@@ -21,10 +21,8 @@ class StudentMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityStudentMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.appBarStudentMain.toolbar)
 
         binding.appBarStudentMain.fab.setOnClickListener { view ->
@@ -46,7 +44,6 @@ class StudentMainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.student_main, menu)
         return true
     }

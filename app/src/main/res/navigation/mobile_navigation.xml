@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.killerinstinct.studydesk.ui.student.drawer.dashboard.DashBoardFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_dashboard"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
