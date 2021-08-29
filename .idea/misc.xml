@@ -25,9 +25,13 @@
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/content_tutor_main.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_add_classroom.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_student_dashboard.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_student_home.xml" value="0.2078125" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_tutor_assignment.xml" value="0.2078125" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_tutor_calendar.xml" value="0.19270833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_tutor_dash_board.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_tutor_home.xml" value="0.19270833333333334" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_tutor_test.xml" value="0.19270833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/nav_header_student_main.xml" value="0.22" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/nav_header_tutor_main.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/menu/activity_nav_draw_drawer.xml" value="0.25" />
