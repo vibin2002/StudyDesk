@@ -41,7 +41,7 @@ class StudentDashBoardFragment : Fragment(R.layout.fragment_tutor_dash_board) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val viewPagerAdapter = TutorViewPagerAdapter(requireActivity().supportFragmentManager,lifecycle)
+        val viewPagerAdapter = TutorViewPagerAdapter(requireActivity())
         binding.viewpager.adapter = viewPagerAdapter
         TabLayoutMediator(
             binding.tablayout, binding.viewpager

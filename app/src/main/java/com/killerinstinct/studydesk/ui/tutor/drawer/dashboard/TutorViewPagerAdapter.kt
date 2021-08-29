@@ -8,8 +8,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class TutorViewPagerAdapter(fragmentManager:FragmentManager,lifecycle: Lifecycle) :
-    FragmentStateAdapter(fragmentManager,lifecycle) {
+class TutorViewPagerAdapter(private val fragmentActivity: FragmentActivity) :
+    FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount() :Int
     {
