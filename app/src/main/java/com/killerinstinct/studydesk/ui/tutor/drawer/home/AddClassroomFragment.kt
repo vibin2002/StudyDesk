@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.FragmentAddClassroomBinding
@@ -23,6 +24,7 @@ class AddClassroomFragment : Fragment(R.layout.fragment_add_classroom) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAddClassroomBinding.bind(view)
+        val navController=findNavController()
 
         binding.btnAdd.setOnClickListener {
             Log.d("addClassRoom:","Clicked")
@@ -33,11 +35,14 @@ class AddClassroomFragment : Fragment(R.layout.fragment_add_classroom) {
                 viewModel.addClassRoom(
                     binding.etClassname.text.toString(),
                     binding.etSubjectname.text.toString(),
-                    viewModel.tutor.value!!.name!!
+                    viewModel.tutor.value!!.name
                 ){ isAdded ->
-                    if(isAdded){
+                    if(isAdded)
+                    {
                         Toast.makeText(requireActivity(), "Classroom added", Toast.LENGTH_SHORT).show()
-                    }else{
+                        navController.navigate(R.id.action_addClassroomFragment_to_tutorHomeFragment)
+                    }
+                    else{
                         Toast.makeText(requireActivity(), "Classroom not added", Toast.LENGTH_SHORT).show()
                     }
                 }

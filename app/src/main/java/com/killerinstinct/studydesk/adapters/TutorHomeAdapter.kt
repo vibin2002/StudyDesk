@@ -9,7 +9,7 @@ import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.data.models.ClassRoom
 
 class TutorHomeAdapter(
-    private var TutorList:List<ClassRoom>
+    private var list:List<ClassRoom>
 ): RecyclerView.Adapter<TutorHomeAdapter.TutorHomeViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -22,14 +22,14 @@ class TutorHomeAdapter(
     }
 
     override fun onBindViewHolder(holder: TutorHomeAdapter.TutorHomeViewHolder, position: Int) {
-        holder.class_name.text=TutorList[position].className
-        holder.tutorName.text=TutorList[position].tutor
-        holder.subject_name.text=TutorList[position].subject
-        holder.studentCount.text=TutorList[position].students.size.toString()
+        holder.class_name.text=list[position].className
+        holder.tutorName.text=list[position].tutor
+        holder.subject_name.text=list[position].subject
+        holder.studentCount.text=list[position].students.size.toString()
     }
 
     override fun getItemCount(): Int {
-        return TutorList.size
+        return list.size
     }
     inner class TutorHomeViewHolder(view: View):RecyclerView.ViewHolder(view)
     {

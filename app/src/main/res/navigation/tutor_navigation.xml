@@ -23,5 +23,9 @@
         android:id="@+id/addClassroomFragment"
         android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.AddClassroomFragment"
         android:label="fragment_add_classroom"
-        tools:layout="@layout/fragment_add_classroom" />
+        tools:layout="@layout/fragment_add_classroom" >
+        <action
+            android:id="@+id/action_addClassroomFragment_to_tutorHomeFragment"
+            app:destination="@id/tutorHomeFragment" />
+    </fragment>
 </navigation>
