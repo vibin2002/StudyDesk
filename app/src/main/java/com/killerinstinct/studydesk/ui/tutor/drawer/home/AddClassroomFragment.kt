@@ -15,7 +15,7 @@ import com.killerinstinct.studydesk.databinding.FragmentAddClassroomBinding
 import com.killerinstinct.studydesk.ui.tutor.TutorMainViewModel
 import kotlin.math.log
 
-class AddClassroomFragment : Fragment() {
+class AddClassroomFragment : Fragment(R.layout.fragment_add_classroom) {
 
     private lateinit var binding: FragmentAddClassroomBinding
     private val viewModel: TutorMainViewModel by activityViewModels()

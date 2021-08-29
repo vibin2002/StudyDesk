@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.killerinstinct.studydesk.Utils
 import com.killerinstinct.studydesk.data.models.ClassRoom
 import com.killerinstinct.studydesk.data.models.Tutor
 
@@ -23,7 +25,7 @@ class TutorMainViewModel : ViewModel() {
                 .document(uid)
                 .get().addOnSuccessListener {
                     _tutor.value = it.toObject(Tutor::class.java)
-                    Log.d( "getTutorData",_tutor.value.toString())
+                    Log.d("getTutorData", _tutor.value.toString())
                     gotTutor(true)
                 }
                 .addOnFailureListener {
@@ -38,7 +40,9 @@ class TutorMainViewModel : ViewModel() {
         tutor: Tutor,
         isSuccessful: (Boolean) -> Unit
     ) {
+        val classRoomUID = Utils.randomString()
         val classRoom = ClassRoom(
+            classRoomUID,
             className,
             subject,
             tutor,
@@ -46,16 +50,24 @@ class TutorMainViewModel : ViewModel() {
             listOf(),
             listOf()
         )
-        db.collection("Classroom")
-            .add(classRoom)
+        db.collection("Classrooms")
+            .document(classRoomUID)
+            .set(classRoom)
             .addOnSuccessListener {
-                Log.d("addClassRoom:","Success")
-                isSuccessful(true)
+                db.collection("Tutors")
+                    .document(userUid!!)
+                    .update("classRooms", FieldValue.arrayUnion(classRoomUID))
+                    .addOnSuccessListener {
+                        Log.d("addClassRoom:", "Success")
+                        isSuccessful(true)
+                    }.addOnFailureListener {
+                        isSuccessful(false)
+                    }
             }.addOnFailureListener {
-                Log.d("addClassRoom:","Failure 1")
+                Log.d("addClassRoom:", "Failure 1")
                 isSuccessful(false)
             }
-        Log.d("addClassRoom:","Failure 2")
+        Log.d("addClassRoom:", "Failure 2")
     }
 
 }
