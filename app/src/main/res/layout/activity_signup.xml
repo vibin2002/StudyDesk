@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/theme_bg"
     tools:context=".ui.SignupActivity">
 
     <LinearLayout
@@ -185,6 +186,26 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             />
+
+        <TextView
+            android:id="@+id/googleSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:textSize="18dp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/googleimg"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/text_blue"
+            android:layout_marginTop="20dp"
+            android:padding="12dp"
+            android:textAlignment="center"
+            android:background="@drawable/background"
+            android:text="Signin with Google"
+            />
+
+
 
     </LinearLayout>
 
