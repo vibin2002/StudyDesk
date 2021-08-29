@@ -29,23 +29,19 @@ class TutorDashBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter=TutorViewPagerAdapter(requireActivity().supportFragmentManager,lifecycle)
-        binding.tutViewpager.adapter=adapter
-
-        TabLayoutMediator(binding.tutTablayout,binding.tutViewpager){
-            tab,position->
+        val viewPagerAdapter = TutorViewPagerAdapter(requireActivity())
+        binding.tutViewpager.adapter = viewPagerAdapter
+        TabLayoutMediator(
+            binding.tutTablayout, binding.tutViewpager
+        ) { tab, position ->
             when(position){
-                0->{
-                    tab.text="Assignment"
-                }
-                1->{
-                    tab.text="Test"
-                }
-                2->{
-                    tab.text="Calendar"
-                }
+                0 -> tab.text = "Assignment"
+                1 -> tab.text = "Test"
+                2 -> tab.text = "Calendar"
             }
         }.attach()
+
+
 
 
     }
