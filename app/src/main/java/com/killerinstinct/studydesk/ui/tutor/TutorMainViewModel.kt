@@ -37,7 +37,7 @@ class TutorMainViewModel : ViewModel() {
     fun addClassRoom(
         className: String,
         subject: String,
-        tutor: Tutor,
+        tutor: String,
         isSuccessful: (Boolean) -> Unit
     ) {
         val classRoomUID = Utils.randomString()
@@ -64,7 +64,7 @@ class TutorMainViewModel : ViewModel() {
                         isSuccessful(false)
                     }
             }.addOnFailureListener {
-                Log.d("addClassRoom:", "Failure 1")
+                Log.d("addClassRoom:", it.message.toString())
                 isSuccessful(false)
             }
         Log.d("addClassRoom:", "Failure 2")

@@ -10,19 +10,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/assignment_name"
+            android:id="@+id/test_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_semibold"
             android:layout_marginTop="15dp"
             android:drawablePadding="10dp"
-            android:drawableStart="@drawable/ic_round_school_24"
+            android:drawableStart="@drawable/ic_baseline_create_24"
             android:textColor="@color/text_blue"
             android:layout_marginStart="10dp"
             android:textSize="26dp"
-            android:text="Assignment No 1"/>
+            android:text="Matrix Multiplication"/>
         <TextView
-            android:id="@+id/assignment_subject_name"
+            android:id="@+id/test_subject_name"
             android:layout_width="match_parent"
             android:textSize="15dp"
             android:fontFamily="@font/nunito"
@@ -30,7 +30,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
-            android:text="Data Structures"/>
+            android:text="Algorithms"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,14 +38,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/as_dueDate"
+                android:id="@+id/dueDate"
                 android:layout_width="wrap_content"
                 android:textSize="15dp"
                 android:fontFamily="@font/nunito"
                 android:drawableStart="@drawable/date"
                 android:textColor="@color/text_blue"
                 android:layout_marginStart="10dp"
-                android:gravity="fill"
+               android:gravity="fill"
                 android:drawablePadding="5dp"
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="05-06-2021"/>
             <TextView
-                android:id="@+id/as_dueTime"
+                android:id="@+id/dueTime"
                 android:layout_width="wrap_content"
                 android:textSize="15dp"
                 android:layout_weight="1"

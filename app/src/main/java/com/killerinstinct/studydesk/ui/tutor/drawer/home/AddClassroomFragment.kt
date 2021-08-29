@@ -33,7 +33,7 @@ class AddClassroomFragment : Fragment(R.layout.fragment_add_classroom) {
                 viewModel.addClassRoom(
                     binding.etClassname.text.toString(),
                     binding.etSubjectname.text.toString(),
-                    viewModel.tutor.value!!
+                    viewModel.tutor.value!!.name!!
                 ){ isAdded ->
                     if(isAdded){
                         Toast.makeText(requireActivity(), "Classroom added", Toast.LENGTH_SHORT).show()

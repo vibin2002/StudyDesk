@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/transparent"/>
+    <item
+        android:width="27dp"
+        android:height="26dp"
+        android:drawable="@drawable/clients"
+        android:gravity="center"/>
+
+</layer-list>

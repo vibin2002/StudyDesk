@@ -202,7 +202,7 @@
             android:padding="12dp"
             android:textAlignment="center"
             android:background="@drawable/background"
-            android:text="Signin with Google"
+            android:text="Signup with Google"
             />
 
 
