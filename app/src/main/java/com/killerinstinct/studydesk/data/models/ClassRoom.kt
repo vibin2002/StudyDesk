@@ -1,6 +1,10 @@
 package com.killerinstinct.studydesk.data.models
 
 data class ClassRoom(
+    val className: String,
+    val subject: String,
     val tutor: Tutor,
-    val students: List<Student>
+    val students: List<Student>,
+    val assignments: List<Assignment>,
+    val tests: List<Test>
 )

@@ -22,7 +22,7 @@ private var _binding: FragmentStudentHomeBinding? = null
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
+  ): View {
     studentHomeViewModel =
             ViewModelProvider(this).get(StudentHomeViewModel::class.java)
 
