@@ -9,18 +9,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/class_name"
+
+        <LinearLayout
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_semibold"
-            android:layout_marginTop="15dp"
-            android:drawableStart="@drawable/ic_round_school_24"
-            android:textColor="@color/grey"
-            android:drawablePadding="15dp"
-            android:layout_marginStart="10dp"
-            android:textSize="26dp"
-            android:text="III CSE C"/>
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_weight="80"
+                android:id="@+id/class_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_semibold"
+                android:drawableStart="@drawable/ic_round_school_24"
+                android:textColor="@color/grey"
+                android:drawablePadding="15dp"
+                android:layout_marginStart="10dp"
+                android:textSize="26dp"
+                android:text="III CSE C"/>
+
+            <ImageButton
+                android:id="@+id/btn_share"
+                android:padding="12dp"
+                android:background="@drawable/background"
+                android:layout_gravity="center"
+                android:layout_weight="20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_share"/>
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/subject_name"
             android:layout_width="match_parent"

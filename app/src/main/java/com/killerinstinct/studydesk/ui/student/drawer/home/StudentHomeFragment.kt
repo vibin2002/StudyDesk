@@ -12,31 +12,28 @@ import com.killerinstinct.studydesk.databinding.FragmentStudentHomeBinding
 
 class StudentHomeFragment : Fragment() {
 
-  private lateinit var studentHomeViewModel: StudentHomeViewModel
-private var _binding: FragmentStudentHomeBinding? = null
-  // This property is only valid between onCreateView and
-  // onDestroyView.
-  private val binding get() = _binding!!
+    private var _binding: FragmentStudentHomeBinding? = null
+    private val binding get() = _binding!!
 
-  override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View {
-    studentHomeViewModel =
-            ViewModelProvider(this).get(StudentHomeViewModel::class.java)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentStudentHomeBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        return root
+    }
 
-    _binding = FragmentStudentHomeBinding.inflate(inflater, container, false)
-    val root: View = binding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    val textView: TextView = binding.textHome
-    studentHomeViewModel.text.observe(viewLifecycleOwner, Observer {
-      textView.text = it
-    })
-    return root
-  }
 
-override fun onDestroyView() {
+
+
+    }
+
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }

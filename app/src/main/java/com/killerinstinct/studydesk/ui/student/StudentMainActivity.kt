@@ -28,10 +28,10 @@ class StudentMainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.appBarStudentMain.toolbar)
 
-        binding.appBarStudentMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+//        binding.appBarStudentMain.fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
         val drawerLayout: DrawerLayout = binding.studentDrawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_student_main)
