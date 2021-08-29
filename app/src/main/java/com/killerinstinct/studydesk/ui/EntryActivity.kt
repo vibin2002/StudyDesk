@@ -72,9 +72,16 @@ class EntryActivity : AppCompatActivity() {
         binding = ActivityEntryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createRequest()
+        binding.emailSignIn.setOnClickListener{
+            startActivity(Intent(this,LoginActivity::class.java))
+        }
         binding.googleSignIn.setOnClickListener {
             signIn()
         }
+        binding.dontHav.setOnClickListener{
+            startActivity(Intent(this,SignupActivity::class.java))
+        }
+
     }
 
     //
