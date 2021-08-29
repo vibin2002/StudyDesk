@@ -2,9 +2,11 @@ package com.killerinstinct.studydesk.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -13,12 +15,15 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.killerinstinct.studydesk.R.*
+import com.killerinstinct.studydesk.data.models.LoginCheck
 import com.killerinstinct.studydesk.data.models.Student
 import com.killerinstinct.studydesk.data.models.Tutor
 import com.killerinstinct.studydesk.databinding.ActivityEntryBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainActivity
 import com.killerinstinct.studydesk.ui.tutor.TutorMainActivity
+import kotlinx.coroutines.launch
 
 
 class EntryActivity : AppCompatActivity() {
@@ -32,11 +37,33 @@ class EntryActivity : AppCompatActivity() {
         super.onStart()
         val user = mAuth.currentUser
         if (user != null) {
-            //if(isStudent)
-            val intent = Intent(applicationContext, StudentMainActivity::class.java)
-            //else if(isTutor)
-            //startActivity for tutor
-            startActivity(intent)
+            db.collection("LoginCheck")
+                .document("LoginCheck")
+                .get().addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val loginCheck = it.result.toObject(LoginCheck::class.java)
+                        when {
+                            loginCheck!!.students.contains(mAuth.currentUser?.uid) -> {
+                                Log.d("LoginChecker","Stuendt")
+                                val intent = Intent(applicationContext, StudentMainActivity::class.java)
+                                startActivity(intent)
+                            }
+                            loginCheck.tutors.contains(mAuth.currentUser?.uid) -> {
+                                Log.d("LoginChecker","Tutor")
+                                val intent = Intent(applicationContext, TutorMainActivity::class.java)
+                                startActivity(intent)
+                            }
+                            else -> {
+                                Toast.makeText(this, "Not a user", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(this, "Document not fetched", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+        else{
+            Toast.makeText(this, "User is null", Toast.LENGTH_SHORT).show()
         }
     }
 

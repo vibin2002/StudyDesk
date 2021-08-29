@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.killerinstinct.studydesk.databinding.ActivitySignupBinding
+import com.killerinstinct.studydesk.ui.student.StudentMainActivity
+import com.killerinstinct.studydesk.ui.tutor.TutorMainActivity
 import com.killerinstinct.studydesk.viewmodel.SignUpViewModel
 
 class SignupActivity : AppCompatActivity() {
@@ -26,7 +28,19 @@ class SignupActivity : AppCompatActivity() {
                 binding.suPassword.text.toString(),
                 getDesignation()
             ) { signUpState ->
-                Toast.makeText(this, signUpState, Toast.LENGTH_SHORT).show()
+                when (signUpState) {
+                    "Student" -> {
+                        startActivity(Intent(this,StudentMainActivity::class.java))
+                        finish()
+                    }
+                    "Tutor" -> {
+                        startActivity(Intent(this,TutorMainActivity::class.java))
+                        finish()
+                    }
+                    else -> {
+                        Toast.makeText(this, signUpState, Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 

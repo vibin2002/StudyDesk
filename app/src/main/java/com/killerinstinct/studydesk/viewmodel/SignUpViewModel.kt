@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.killerinstinct.studydesk.data.models.Student
 import com.killerinstinct.studydesk.data.models.Tutor
@@ -35,7 +36,10 @@ class SignUpViewModel : ViewModel() {
                                 .document(it1.uid)
                                 .set(student)
                                 .addOnSuccessListener {
-                                    makeToast("SignUp successful")
+                                    db.collection("LoginCheck")
+                                        .document("LoginCheck")
+                                        .update("students",FieldValue.arrayUnion(it1.uid))
+                                    makeToast("Student")
                                 }.addOnFailureListener {
                                     makeToast("SignUp failure")
                                 }
@@ -49,7 +53,10 @@ class SignUpViewModel : ViewModel() {
                                 .document(it1.uid)
                                 .set(tutor)
                                 .addOnSuccessListener {
-                                    makeToast("SignUp successful")
+                                    db.collection("LoginCheck")
+                                        .document("LoginCheck")
+                                        .update("tutors",FieldValue.arrayUnion(it1.uid))
+                                    makeToast("Tutor")
                                 }.addOnFailureListener {
                                     makeToast("SignUp failure")
                                 }
