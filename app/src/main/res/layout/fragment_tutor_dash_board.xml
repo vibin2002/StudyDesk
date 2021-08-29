@@ -17,13 +17,20 @@
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:id="@+id/assignment_tab"
+            android:layout_height="wrap_content"
+            android:text="assignment"/>
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/test_tab"
+            android:text="Test"/>
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/calender_tab"
+            android:text="Calender"/>
+
 
     </com.google.android.material.tabs.TabLayout>
 

@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.FragmentTutorDashBoardBinding
+import com.killerinstinct.studydesk.ui.student.drawer.dashboard.StudentDashBoardViewModel
 
 class TutorDashBoardFragment : Fragment() {
-
     private var _binding: FragmentTutorDashBoardBinding? = null
     private val binding get() = _binding!!
 
@@ -29,17 +29,24 @@ class TutorDashBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewPagerAdapter = TutorViewPagerAdapter(requireActivity())
-        binding.tutViewpager.adapter = viewPagerAdapter
-        TabLayoutMediator(
-            binding.tutTablayout, binding.tutViewpager
-        ) { tab, position ->
+        val adapter=TutorViewPagerAdapter(requireActivity().supportFragmentManager,lifecycle)
+        binding.tutViewpager.adapter=adapter
+
+        TabLayoutMediator(binding.tutTablayout,binding.tutViewpager){
+            tab,position->
             when(position){
-                0 -> tab.text = "Assignment"
-                1 -> tab.text = "Test"
-                2 -> tab.text = "Calendar"
+                0->{
+                    tab.text="Assignment"
+                }
+                1->{
+                    tab.text="Test"
+                }
+                2->{
+                    tab.text="Calendar"
+                }
             }
-        }
+        }.attach()
+
 
     }
 
