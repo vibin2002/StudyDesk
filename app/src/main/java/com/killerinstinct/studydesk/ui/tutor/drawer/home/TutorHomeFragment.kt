@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.navigation.fragment.findNavController
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.adapters.TutorHomeAdapter
+import com.killerinstinct.studydesk.data.models.ClassRoom
 import com.killerinstinct.studydesk.databinding.FragmentTutorHomeBinding
 import com.killerinstinct.studydesk.ui.tutor.TutorMainViewModel
 
@@ -30,6 +31,17 @@ class TutorHomeFragment : Fragment(R.layout.fragment_tutor_home) {
                 Toast.makeText(requireActivity(), "Unable to fetch tutor", Toast.LENGTH_SHORT).show()
             }
         }
+
+        viewModel.classRooms.observe(this){
+            setupRecyclerView(it)
+        }
+    }
+
+    private fun setupRecyclerView(classRoomList: List<ClassRoom>) {
+        binding.tutHomeRv.apply {
+            layoutManager=LinearLayoutManager(context)
+            adapter= TutorHomeAdapter(classRoomList)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,12 +50,10 @@ class TutorHomeFragment : Fragment(R.layout.fragment_tutor_home) {
 
 
 
-        binding.tutHomeRv.apply {
-            layoutManager=LinearLayoutManager(context)
-//            adapter= TutorHomeAdapter()
-        }
+
 
         val navController = findNavController()
+        setupRecyclerView(listOf())
 
         binding.tutHomeFab.setOnClickListener {
             navController.navigate(R.id.action_tutorHomeFragment_to_addClassroomFragment)

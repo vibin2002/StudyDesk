@@ -16,16 +16,29 @@ class TutorMainViewModel : ViewModel() {
     private val _tutor = MutableLiveData<Tutor>(null)
     val tutor: LiveData<Tutor> = _tutor
 
+    private val _classRooms = MutableLiveData<List<ClassRoom>>(listOf())
+    val classRooms : LiveData<List<ClassRoom>> = _classRooms
+
     private val db = FirebaseFirestore.getInstance()
     private val userUid = FirebaseAuth.getInstance().currentUser?.uid
 
     fun getTutorData(gotTutor: (Boolean) -> Unit) {
+        val mutableList = mutableListOf<ClassRoom>()
         userUid?.let { uid ->
             db.collection("Tutors")
                 .document(uid)
                 .get().addOnSuccessListener {
                     _tutor.value = it.toObject(Tutor::class.java)
                     Log.d("getTutorData", _tutor.value.toString())
+                    db.collection("Classrooms")
+                        .get()
+                        .addOnSuccessListener { documents ->
+                            for(doc in documents){
+                                mutableList.add(doc.toObject(ClassRoom::class.java))
+                            }
+                            _classRooms.value = mutableList.toList()
+                            Log.d("ClassRoomDA", _classRooms.value.toString())
+                        }
                     gotTutor(true)
                 }
                 .addOnFailureListener {
