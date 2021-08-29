@@ -82,7 +82,7 @@ class EntryActivity : AppCompatActivity() {
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(string.default_web_client_id))
+            .requestIdToken(getString(string.default_web_client_id1))
             .requestEmail()
             .build()
 
