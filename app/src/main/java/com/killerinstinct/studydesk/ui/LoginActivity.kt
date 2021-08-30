@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.ActivityLoginBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainActivity
+import com.killerinstinct.studydesk.ui.tutor.TutorMainActivity
 import com.killerinstinct.studydesk.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this, StudentMainActivity::class.java))
                 }else if(isValid == "Tutor"){
                     Toast.makeText(this, "login Successful", Toast.LENGTH_SHORT).show()
-//                    startActivity(Intent(this, TutorMainActivity::class.java))
+                    startActivity(Intent(this, TutorMainActivity::class.java))
                 }else if(isValid == "Failure"){
                     Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show()
                 }

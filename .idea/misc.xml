@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/drawable/card_bg.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/activity_classroom.xml" value="0.16576086956521738" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_add_assignment.xml" value="0.22" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_add_classroom.xml" value="0.22" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_add_test.xml" value="0.25" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_assignment.xml" value="0.16576086956521738" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_classroom_test.xml" value="0.16576086956521738" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_student_dashboard.xml" value="0.16576086956521738" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_tutor_calendar.xml" value="0.12" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_tutor_dash_board.xml" value="0.10182370820668693" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Project1/StudyDesk/app/src/main/res/layout/fragment_tutor_home.xml" value="0.10182370820668693" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/drawable-v24/background.xml" value="0.22395833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/drawable-v24/ic_round_person_24.xml" value="0.22395833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/drawable/background.xml" value="0.22395833333333334" />
@@ -10,7 +21,6 @@
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/drawable/side_nav_bar.xml" value="0.2205128205128205" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/font/nunito.xml" value="0.23435897435897435" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout-w936dp/content_tutor_main.xml" value="0.155859375" />
-        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_class_room.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_entry.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_login.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_main.xml" value="0.2078125" />
