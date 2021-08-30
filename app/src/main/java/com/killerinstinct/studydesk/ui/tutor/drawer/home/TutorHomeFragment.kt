@@ -3,6 +3,7 @@ package com.killerinstinct.studydesk.ui.tutor.drawer.home
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -32,9 +33,6 @@ class TutorHomeFragment : Fragment(R.layout.fragment_tutor_home) {
             }
         }
 
-        viewModel.classRooms.observe(this){
-            setupRecyclerView(it)
-        }
     }
 
     private fun setupRecyclerView(classRoomList: List<ClassRoom>) {
@@ -48,19 +46,16 @@ class TutorHomeFragment : Fragment(R.layout.fragment_tutor_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentTutorHomeBinding.bind(view)
 
-
-
-
-
-        val navController = findNavController()
         setupRecyclerView(listOf())
 
-        binding.tutHomeFab.setOnClickListener {
-            navController.navigate(R.id.action_tutorHomeFragment_to_addClassroomFragment)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.classRooms.observe(this){
+            setupRecyclerView(it)
         }
-
-
-
+        Log.d("LOkiSylvie", "onStart: SUmmma")
     }
 
 }

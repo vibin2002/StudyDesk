@@ -2,8 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/item_classroom"
+        android:title="New Classroom"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_assignment"
+        android:title="New Assignment"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_test"
+        android:title="New Test"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_logout"
+        android:title="Logout"
         app:showAsAction="never" />
 </menu>

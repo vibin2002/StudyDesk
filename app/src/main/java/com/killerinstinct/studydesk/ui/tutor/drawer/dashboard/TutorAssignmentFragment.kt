@@ -1,20 +1,20 @@
 package com.killerinstinct.studydesk.ui.tutor.drawer.dashboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.killerinstinct.studydesk.R
+import com.killerinstinct.studydesk.databinding.FragmentTutorAssignmentBinding
 
-class TutorAssignmentFragment : Fragment() {
+class TutorAssignmentFragment : Fragment(R.layout.fragment_tutor_assignment) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tutor_assignment, container, false)
+    lateinit var binding: FragmentTutorAssignmentBinding
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentTutorAssignmentBinding.bind(view)
+
     }
 
 

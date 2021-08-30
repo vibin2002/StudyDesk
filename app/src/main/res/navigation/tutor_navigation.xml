@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_tutorHomeFragment_to_addClassroomFragment"
             app:destination="@id/addClassroomFragment" />
+        <action
+            android:id="@+id/action_tutorHomeFragment_to_addTestFragment"
+            app:destination="@id/addTestFragment" />
+        <action
+            android:id="@+id/action_tutorHomeFragment_to_addAssignmentFragment"
+            app:destination="@id/addAssignmentFragment" />
     </fragment>
     <fragment
         android:id="@+id/tutorDashBoardFragment"
@@ -28,4 +34,14 @@
             android:id="@+id/action_addClassroomFragment_to_tutorHomeFragment"
             app:destination="@id/tutorHomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addAssignmentFragment"
+        android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.AddAssignmentFragment"
+        android:label="fragment_add_assignment"
+        tools:layout="@layout/fragment_add_assignment" />
+    <fragment
+        android:id="@+id/addTestFragment"
+        android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.AddTestFragment"
+        android:label="fragment_add_test"
+        tools:layout="@layout/fragment_add_test" />
 </navigation>

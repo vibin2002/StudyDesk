@@ -3,7 +3,9 @@ package com.killerinstinct.studydesk.ui.tutor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -21,6 +23,7 @@ class TutorMainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityTutorMainBinding
     private val currUser = FirebaseAuth.getInstance().currentUser
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +34,7 @@ class TutorMainActivity : AppCompatActivity() {
 
         val drawerLayout: DrawerLayout = binding.tutorDrawerLayout
         val navView: NavigationView = binding.tutNavView
-        val navController = findNavController(R.id.nav_host_fragment_content_tutor_main)
+        navController = findNavController(R.id.nav_host_fragment_content_tutor_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.tutorHomeFragment, R.id.tutorDashBoardFragment
@@ -49,6 +52,32 @@ class TutorMainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.tutor_main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.item_classroom -> {
+                navController.navigateUp()
+                navController.navigate(R.id.action_tutorHomeFragment_to_addClassroomFragment)
+                return true
+            }
+            R.id.item_assignment -> {
+                navController.navigateUp()
+                navController.navigate(R.id.action_tutorHomeFragment_to_addAssignmentFragment)
+                return true
+            }
+            R.id.item_test -> {
+                navController.navigateUp()
+                navController.navigate(R.id.action_tutorHomeFragment_to_addTestFragment)
+                return true
+            }
+            R.id.item_logout -> {
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
