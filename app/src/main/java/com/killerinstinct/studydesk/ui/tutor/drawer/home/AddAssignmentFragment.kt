@@ -3,6 +3,7 @@ package com.killerinstinct.studydesk.ui.tutor.drawer.home
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -44,9 +45,11 @@ class AddAssignmentFragment : Fragment(R.layout.fragment_add_assignment)
                     Toast.makeText(requireActivity(), "Assignment added", Toast.LENGTH_SHORT).show()
                     navController.navigateUp()
                 } else {
-                    Toast.makeText(requireActivity(), "Assignment not added", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireActivity(), "Assignment not added", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
+            }
         }
 
 
@@ -73,11 +76,23 @@ class AddAssignmentFragment : Fragment(R.layout.fragment_add_assignment)
                 val calendar=Calendar.getInstance()
                 val hour=calendar[Calendar.HOUR]
                 val minute=calendar[Calendar.MINUTE]
+                val ampm:String
+                if( hour<12)
+                    ampm="AM"
+                else
+                    ampm="PM"
 
-
+                val timePickerDialog = TimePickerDialog(
+                    requireActivity()!!,
+                    {view,hour,minute->
+                        time = hour.toString() + ":" + minute.toString()+" "+ampm
+                        binding.assDueTime.setText(time)
+                    },
+                    hour,minute,DateFormat.is24HourFormat(requireContext())
+                )
+                timePickerDialog.show()
             }
         }
     }
 
 
-}

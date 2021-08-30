@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,8 +24,9 @@ import java.util.*
 class AddTestFragment : Fragment(R.layout.fragment_add_test)
 {
 
-    var start_date_selected: String? = null
     var end_date_selected: String? = null
+    var time: String? = null
+
 
     private lateinit var binding: FragmentAddTestBinding
     private val viewModel: TutorMainViewModel by activityViewModels()
@@ -77,8 +79,25 @@ class AddTestFragment : Fragment(R.layout.fragment_add_test)
             datePickerDialog.show()
 
         }
-        binding.dueTime.setOnClickListener {
+        binding.dueTime.setOnClickListener{
+            val calendar=Calendar.getInstance()
+            val hour=calendar[Calendar.HOUR]
+            val minute=calendar[Calendar.MINUTE]
+            val ampm:String
+            if( hour<12)
+                ampm="AM"
+            else
+                ampm="PM"
 
+            val timePickerDialog = TimePickerDialog(
+                requireActivity()!!,
+                {view,hour,minute->
+                    time = hour.toString() + ":" + minute.toString()+" "+ampm
+                    binding.dueTime.setText(time)
+                },
+                hour,minute, DateFormat.is24HourFormat(requireContext())
+            )
+            timePickerDialog.show()
         }
     }
 }
