@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyDesk">
         <activity
+            android:name=".ui.classroom.ClassroomActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.tutor.TutorMainActivity"
             android:exported="true" />
         <activity
