@@ -12,6 +12,7 @@ import com.killerinstinct.studydesk.data.models.Assignment
 import com.killerinstinct.studydesk.data.models.ClassRoom
 import com.killerinstinct.studydesk.data.models.Test
 import com.killerinstinct.studydesk.data.models.Tutor
+import kotlin.math.log
 
 class TutorMainViewModel : ViewModel() {
 
@@ -20,6 +21,12 @@ class TutorMainViewModel : ViewModel() {
 
     private val _classRooms = MutableLiveData<List<ClassRoom>>(listOf())
     val classRooms : LiveData<List<ClassRoom>> = _classRooms
+
+    private val _assignments = MutableLiveData<List<Assignment>>(listOf())
+    val assignments: LiveData<List<Assignment>> = _assignments
+
+    private val _test = MutableLiveData<List<Test>>(listOf())
+    val test: LiveData<List<Test>> = _test
 
     private val db = FirebaseFirestore.getInstance()
     private val userUid = FirebaseAuth.getInstance().currentUser?.uid
@@ -51,6 +58,42 @@ class TutorMainViewModel : ViewModel() {
                 }
         }
     }
+
+    fun getAllAssignments(gotAssignments: (Boolean)-> Unit){
+        val mutableAssignmentList = mutableListOf<Assignment>()
+        db.collection("Assignments")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (doc in documents){
+                    val assignment = doc.toObject(Assignment::class.java)
+                    if (assignment.classRoomCode in _tutor.value!!.classRooms){
+                        mutableAssignmentList.add(assignment)
+                    }
+                }
+                gotAssignments(true)
+                _assignments.value = mutableAssignmentList.toList()
+            }.addOnFailureListener {
+                gotAssignments(false)
+            }
+    }
+
+    fun getAllTests(gotTests: (Boolean) -> Unit){
+        val mutableTestList = mutableListOf<Test>()
+        db.collection("Tests")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (doc in documents){
+                    val test = doc.toObject(Test::class.java)
+                    if (test.classRoomCode in _tutor.value!!.classRooms){
+                        mutableTestList.add(test)
+                    }
+                }
+                gotTests(true)
+                _test.value = mutableTestList.toList()
+            }.addOnFailureListener {
+                gotTests(false)
+            }
+        }
 
     fun addClassRoom(
         className: String,
@@ -96,6 +139,7 @@ class TutorMainViewModel : ViewModel() {
         time: String,
         isSuccessful: (Boolean) -> Unit
     ) {
+        // TODO(Check if classroom code is Valid)
         val assignmentId = Utils.randomString()
         val assignment = Assignment(
             title,
@@ -132,6 +176,8 @@ class TutorMainViewModel : ViewModel() {
         time: String,
         isSuccessful: (Boolean) -> Unit
     ) {
+
+        // TODO(Check if classroom code is Valid)
         val testId = Utils.randomString()
         val test = Test(
             title,

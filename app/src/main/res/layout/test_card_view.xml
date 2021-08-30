@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/dueDate"
+                android:id="@+id/test_dueDate"
                 android:layout_width="wrap_content"
                 android:textSize="15dp"
                 android:fontFamily="@font/nunito"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="05-06-2021"/>
             <TextView
-                android:id="@+id/dueTime"
+                android:id="@+id/test_dueTime"
                 android:layout_width="wrap_content"
                 android:textSize="15dp"
                 android:layout_weight="1"

@@ -57,19 +57,21 @@ class AddTestFragment : Fragment(R.layout.fragment_add_test)
 //        minute=cal.get(Calendar.MINUTE)
 
         val navController = findNavController()
-        viewModel.addTest(
-            "Title",
-            "Descrpfowenf",
-            "DSA",
-            "rOZ3S2",
-            "123456",
-            "09:12",
-        ) { isAdded ->
-            if (isAdded) {
-                Toast.makeText(requireActivity(), "Test added", Toast.LENGTH_SHORT).show()
-                navController.navigateUp()
-            } else {
-                Toast.makeText(requireActivity(), "Test not added", Toast.LENGTH_SHORT).show()
+        binding.btnAdd.setOnClickListener {
+            viewModel.addTest(
+                binding.testTitle.text.toString(),
+                binding.testDescription.text.toString(),
+                "Dono",
+                binding.testClassCode.text.toString(),
+                "123456",
+                "09:12",
+            ) { isAdded ->
+                if (isAdded) {
+                    Toast.makeText(requireActivity(), "Test added", Toast.LENGTH_SHORT).show()
+                    navController.navigateUp()
+                } else {
+                    Toast.makeText(requireActivity(), "Test not added", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

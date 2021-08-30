@@ -20,7 +20,7 @@
         android:paddingLeft="15dp"
         android:textColor="@color/purple_200" />
     <EditText
-        android:id="@+id/Assignment_description"
+        android:id="@+id/assignment_description"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -33,7 +33,7 @@
         android:paddingLeft="15dp"
         android:textColor="@color/purple_200" />
     <EditText
-        android:id="@+id/Assignment_class_code"
+        android:id="@+id/assignment_class_code"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -46,7 +46,7 @@
         android:paddingLeft="15dp"
         android:textColor="@color/purple_200" />
     <TextView
-        android:id="@+id/dueDate"
+        android:id="@+id/ass_due_date"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -59,7 +59,7 @@
         android:paddingLeft="15dp"
         android:textColor="@color/purple_200" />
     <TextView
-        android:id="@+id/dueTime"
+        android:id="@+id/ass_due_time"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"

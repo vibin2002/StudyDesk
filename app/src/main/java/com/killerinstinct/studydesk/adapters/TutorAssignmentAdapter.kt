@@ -40,10 +40,10 @@ class TutorAssignmentAdapter (
     }
 
     inner class TutorAssignmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val assignmentName = view.findViewById<TextView>(R.id.staff_name)
-        val sub_name = view.findViewById<TextView>(R.id.class_name)
-        val dueDate= view.findViewById<TextView>(R.id.subject_name)
-        val dueTime = view.findViewById<TextView>(R.id.studnt_count)
+        val assignmentName = view.findViewById<TextView>(R.id.assignment_name)
+        val sub_name = view.findViewById<TextView>(R.id.assignment_subject_name)
+        val dueDate= view.findViewById<TextView>(R.id.as_dueDate)
+        val dueTime = view.findViewById<TextView>(R.id.as_dueTime)
 
 
     }

@@ -41,20 +41,23 @@ class AddAssignmentFragment : Fragment(R.layout.fragment_add_assignment)
         binding = FragmentAddAssignmentBinding.bind(view)
 
         val navController = findNavController()
-        viewModel.addAssignment(
-            "Title",
-            "Descrpfowenf",
-            "rOZ3S2",
-            "123456",
-            "09:12",
+        binding.btnAdd.setOnClickListener {
+            viewModel.addAssignment(
+                binding.assignmentTitle.text.toString(),
+                binding.assignmentDescription.text.toString(),
+                binding.assignmentClassCode.text.toString(),
+                "123456",
+                "09:12",
             ) { isAdded ->
-            if (isAdded) {
-                Toast.makeText(requireActivity(), "Assignment added", Toast.LENGTH_SHORT).show()
-                navController.navigateUp()
-            } else {
-                Toast.makeText(requireActivity(), "Assignment not added", Toast.LENGTH_SHORT).show()
-            }
+                if (isAdded) {
+                    Toast.makeText(requireActivity(), "Assignment added", Toast.LENGTH_SHORT).show()
+                    navController.navigateUp()
+                } else {
+                    Toast.makeText(requireActivity(), "Assignment not added", Toast.LENGTH_SHORT)
+                        .show()
+                }
 
+            }
         }
 
 

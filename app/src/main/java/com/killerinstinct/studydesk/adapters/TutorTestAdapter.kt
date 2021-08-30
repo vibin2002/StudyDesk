@@ -39,10 +39,10 @@ class TutorTestAdapter (
     }
 
     inner class TutorTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val name = view.findViewById<TextView>(R.id.staff_name)
-        val sub_name = view.findViewById<TextView>(R.id.class_name)
-        val dueDate= view.findViewById<TextView>(R.id.subject_name)
-        val dueTime = view.findViewById<TextView>(R.id.studnt_count)
+        val name = view.findViewById<TextView>(R.id.test_name)
+        val sub_name = view.findViewById<TextView>(R.id.test_subject_name)
+        val dueDate= view.findViewById<TextView>(R.id.test_dueDate)
+        val dueTime = view.findViewById<TextView>(R.id.test_dueTime)
 
     }
 }
