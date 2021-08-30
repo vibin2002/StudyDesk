@@ -16,7 +16,7 @@
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_main.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_signup.xml" value="0.19270833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_studebt_main.xml" value="0.19270833333333334" />
-        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_student_main.xml" value="0.11145833333333334" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_student_main.xml" value="0.1" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/activity_tutor_main.xml" value="0.16" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/app_bar_student_main.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/app_bar_tutor_main.xml" value="0.2078125" />
@@ -30,6 +30,8 @@
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_class_room.xml" value="0.22083333333333333" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_join_class.xml" value="0.22" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_student_assignment.xml" value="0.2078125" />
+        <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_student_calendar.xml" value="0.19270833333333334" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_student_dashboard.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_student_home.xml" value="0.2078125" />
         <entry key="..\:/androidprojects/StudyDesk/app/src/main/res/layout/fragment_tutor_assignment.xml" value="0.2078125" />

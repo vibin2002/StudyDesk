@@ -12,7 +12,17 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import com.killerinstinct.studydesk.R
+import com.killerinstinct.studydesk.data.models.Student
+import com.killerinstinct.studydesk.data.models.Tutor
 import com.killerinstinct.studydesk.databinding.ActivitySignupBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainActivity
 import com.killerinstinct.studydesk.ui.tutor.TutorMainActivity
@@ -20,6 +30,10 @@ import com.killerinstinct.studydesk.viewmodel.SignUpViewModel
 
 class SignupActivity : AppCompatActivity() {
 
+    private var mGoogleSignInClient: GoogleSignInClient? = null
+    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
+    var desig = "NULL"
     lateinit var binding: ActivitySignupBinding
     private val signUpViewModel: SignUpViewModel by viewModels()
     val context: Context = this
@@ -29,6 +43,7 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        createRequest()
         //dialog Code
         binding.googleSignUp.setOnClickListener(View.OnClickListener {
             val dialog = Dialog(context)
@@ -39,12 +54,14 @@ class SignupActivity : AppCompatActivity() {
             val tutor = dialog.findViewById<Button>(R.id.buttontutor)
             val student = dialog.findViewById<Button>(R.id.buttonStudent)
             tutor.setOnClickListener { v1: View? ->
-                //TODO TUTOR SIGNUP
                 dialog.dismiss()
+                desig = "Tutor"
+                signIn()
             }
             student.setOnClickListener { v13: View? ->
-                //TODO STUDENT SIGNUP
                 dialog.dismiss()
+                desig = "Student"
+                signIn()
             }
             dialog.show()
         })
@@ -80,6 +97,98 @@ class SignupActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun createRequest() {
+
+        // Configure Google Sign In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id1))
+            .requestEmail()
+            .build()
+
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+    }
+
+    private fun signIn() {
+        val signInIntent: Intent = mGoogleSignInClient?.signInIntent ?: return
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
+                firebaseAuthWithGoogle(account)
+            } catch (e: ApiException) {
+                // Google Sign In failed, update UI appropriately
+                // ...
+                Toast.makeText(this, "Here ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
+        mAuth.signInWithCredential(credential)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    val user = mAuth.currentUser
+                    val name = user?.displayName.toString()
+                    val designation = desig
+                    if (designation == "Student"){
+                        val student = Student(
+                            name, listOf(), listOf(), listOf()
+                        )
+                        mAuth.currentUser?.let { it1 ->
+                            db.collection("Students")
+                                .document(it1.uid)
+                                .set(student)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "SignUp successful", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(applicationContext, StudentMainActivity::class.java)
+                                    startActivity(intent)
+                                }.addOnFailureListener {
+                                    Toast.makeText(this, "SignUp failure", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    }else if(designation == "Tutor"){
+                        val tutor = Tutor(
+                            name, listOf(), listOf(), listOf()
+                        )
+                        mAuth.currentUser?.let { it1 ->
+                            db.collection("Tutors")
+                                .document(it1.uid)
+                                .set(tutor)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "SignUp successful", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(applicationContext, TutorMainActivity::class.java)
+                                    startActivity(intent)
+                                }.addOnFailureListener {
+                                    Toast.makeText(this, "SignUp failure", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    }
+
+                } else {
+                    Toast.makeText(this, "Sorry auth failed.", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                // ...
+            }
+    }
+
+    companion object {
+        private const val RC_SIGN_IN = 123
+    }
+
 
     private fun getDesignation(): String {
         val id = binding.radioGrp.checkedRadioButtonId

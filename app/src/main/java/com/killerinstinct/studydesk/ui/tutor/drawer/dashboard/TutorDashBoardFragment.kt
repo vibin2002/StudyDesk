@@ -1,16 +1,12 @@
 package com.killerinstinct.studydesk.ui.tutor.drawer.dashboard
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
-import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.FragmentTutorDashBoardBinding
-import com.killerinstinct.studydesk.ui.student.drawer.dashboard.StudentDashBoardViewModel
 
 class TutorDashBoardFragment : Fragment() {
     private var _binding: FragmentTutorDashBoardBinding? = null
