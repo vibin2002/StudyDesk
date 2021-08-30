@@ -8,7 +8,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.killerinstinct.studydesk.Utils
+import com.killerinstinct.studydesk.data.models.Assignment
 import com.killerinstinct.studydesk.data.models.ClassRoom
+import com.killerinstinct.studydesk.data.models.Test
 import com.killerinstinct.studydesk.data.models.Tutor
 
 class TutorMainViewModel : ViewModel() {
@@ -34,7 +36,10 @@ class TutorMainViewModel : ViewModel() {
                         .get()
                         .addOnSuccessListener { documents ->
                             for(doc in documents){
-                                mutableList.add(doc.toObject(ClassRoom::class.java))
+                                val classroom = doc.toObject(ClassRoom::class.java)
+                                if (classroom.code in _tutor.value!!.classRooms){
+                                    mutableList.add(classroom)
+                                }
                             }
                             _classRooms.value = mutableList.toList()
                             Log.d("ClassRoomDA", _classRooms.value.toString())
@@ -81,6 +86,78 @@ class TutorMainViewModel : ViewModel() {
                 isSuccessful(false)
             }
         Log.d("addClassRoom:", "Failure 2")
+    }
+
+    fun addAssignment(
+        title: String,
+        description: String,
+        classRoomId: String,
+        date: String,
+        time: String,
+        isSuccessful: (Boolean) -> Unit
+    ) {
+        val assignmentId = Utils.randomString()
+        val assignment = Assignment(
+            title,
+            description,
+            classRoomId,
+            date,
+            time
+        )
+        db.collection("Assignments")
+            .document(assignmentId)
+            .set(assignment)
+            .addOnSuccessListener {
+                db.collection("Classrooms")
+                    .document(classRoomId)
+                    .update("assignments", FieldValue.arrayUnion(assignmentId))
+                    .addOnSuccessListener {
+                        Log.d("addAssignment", "Success")
+                        isSuccessful(true)
+                    }.addOnFailureListener {
+                        isSuccessful(false)
+                    }
+            }.addOnFailureListener {
+                Log.d("addAssignment:", it.message.toString())
+                isSuccessful(false)
+            }
+    }
+
+    fun addTest(
+        title: String,
+        description: String,
+        subject: String,
+        classRoomId: String,
+        date: String,
+        time: String,
+        isSuccessful: (Boolean) -> Unit
+    ) {
+        val testId = Utils.randomString()
+        val test = Test(
+            title,
+            description,
+            subject,
+            classRoomId,
+            date,
+            time
+        )
+        db.collection("Tests")
+            .document(testId)
+            .set(test)
+            .addOnSuccessListener {
+                db.collection("Classrooms")
+                    .document(classRoomId)
+                    .update("tests", FieldValue.arrayUnion(testId))
+                    .addOnSuccessListener {
+                        Log.d("addTest", "Success")
+                        isSuccessful(true)
+                    }.addOnFailureListener {
+                        isSuccessful(false)
+                    }
+            }.addOnFailureListener {
+                Log.d("addTest:", it.message.toString())
+                isSuccessful(false)
+            }
     }
 
 }

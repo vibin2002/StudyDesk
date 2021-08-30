@@ -4,7 +4,7 @@ data class Test(
     val title: String,
     val description: String,
     val subject: String,
-    val file: String,
+    val classRoomCode: String,
     val date: String,
     val time: String
 )

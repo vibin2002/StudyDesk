@@ -29,7 +29,7 @@ class TutorAssignmentAdapter (
 
     override fun onBindViewHolder(holder: TutorAssignmentAdapter.TutorAssignmentViewHolder, position: Int) {
         holder.assignmentName.text = list[position].title
-        holder.sub_name.text = list[position].classRoom
+        holder.sub_name.text = list[position].classRoomCode
         holder.dueDate.text = list[position].date
         holder.dueTime.text = list[position].time
 

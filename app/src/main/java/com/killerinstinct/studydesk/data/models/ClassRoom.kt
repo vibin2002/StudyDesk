@@ -5,7 +5,7 @@ data class ClassRoom(
     val className: String = "",
     val subject: String = "",
     val tutor: String = "",
-    val students: List<Student> = listOf(),
-    val assignments: List<Assignment> = listOf(),
-    val tests: List<Test> = listOf()
+    val students: List<String> = listOf(),
+    val assignments: List<String> = listOf(),
+    val tests: List<String> = listOf()
 )
