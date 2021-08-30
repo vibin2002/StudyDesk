@@ -73,6 +73,24 @@ class StudentMainViewModel : ViewModel() {
             }
     }
 
+    fun getAllTests(gotTests: (Boolean) -> Unit){
+        val mutableTestList = mutableListOf<Test>()
+        db.collection("Tests")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (doc in documents){
+                    val test = doc.toObject(Test::class.java)
+                    if (test.classRoomCode in _student.value!!.classRooms){
+                        mutableTestList.add(test)
+                    }
+                }
+                gotTests(true)
+                _test.value = mutableTestList.toList()
+            }.addOnFailureListener {
+                gotTests(false)
+            }
+    }
+
     fun addStudentToClass(classCode: String, isAdded: (String) -> Unit) {
         db.collection("Classrooms")
             .document(classCode.trim())
