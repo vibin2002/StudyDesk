@@ -26,18 +26,14 @@ class LoginActivity : AppCompatActivity() {
                 binding.loginEmail.text.toString(),
                 binding.loginPassword.text.toString()
             ) { isValid ->
-                when (isValid) {
-                    "Student" -> {
-                        Toast.makeText(this, "login Successful", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, StudentMainActivity::class.java))
-                    }
-                    "Tutor" -> {
-                        Toast.makeText(this, "login Successful", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, TutorMainActivity::class.java))
-                    }
-                    "Failure" -> {
-                        Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show()
-                    }
+                if(isValid == "Student"){
+                    Toast.makeText(this, "login Successful", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, StudentMainActivity::class.java))
+                }else if(isValid == "Tutor"){
+                    Toast.makeText(this, "login Successful", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, TutorMainActivity::class.java))
+                }else if(isValid == "Failure"){
+                    Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show()
                 }
 
             }

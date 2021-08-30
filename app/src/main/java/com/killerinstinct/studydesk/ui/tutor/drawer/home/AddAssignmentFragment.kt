@@ -11,41 +11,32 @@ import androidx.navigation.fragment.findNavController
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.FragmentAddAssignmentBinding
 import com.killerinstinct.studydesk.ui.tutor.TutorMainViewModel
 import java.util.*
 
 class AddAssignmentFragment : Fragment(R.layout.fragment_add_assignment)
-//    DatePickerDialog.OnDateSetListener,
-//    TimePickerDialog.OnTimeSetListener
 {
 
-//    var day=0
-//    var month=0
-//    var year=0
-//    var hour=0
-//    var minute=0
-//    var Savday=0
-//    var Savmonth=0
-//    var Savyear=0
-//    var Savhour=0
-//    var Savminute=0
-
+    var end_date_selected: String? = null
+    var time:String?=null
 
     private lateinit var binding: FragmentAddAssignmentBinding
     private val viewModel: TutorMainViewModel by activityViewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAddAssignmentBinding.bind(view)
 
-        val navController = findNavController()
         binding.btnAdd.setOnClickListener {
+            val navController = findNavController()
             viewModel.addAssignment(
-                binding.assignmentTitle.text.toString(),
-                binding.assignmentDescription.text.toString(),
-                binding.assignmentClassCode.text.toString(),
+                "Title",
+                "Descrpfowenf",
+                "rOZ3S2",
                 "123456",
                 "09:12",
             ) { isAdded ->
@@ -53,53 +44,40 @@ class AddAssignmentFragment : Fragment(R.layout.fragment_add_assignment)
                     Toast.makeText(requireActivity(), "Assignment added", Toast.LENGTH_SHORT).show()
                     navController.navigateUp()
                 } else {
-                    Toast.makeText(requireActivity(), "Assignment not added", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(requireActivity(), "Assignment not added", Toast.LENGTH_SHORT).show()
                 }
 
-            }
         }
 
 
-//        binding.dueDate.setOnClickListener{
-//            getDateTime()
-//            DatePickerDialog(requireActivity(),this,year,month,day)
-//        }
-//        binding.dueTime.setOnClickListener{
-//            getDateTime()
-//            TimePickerDialog(requireActivity(),this,hour,minute,true)
-//        }
+
+            binding.assDueDate.setOnClickListener{
+                val calendar = Calendar.getInstance()
+                val year = calendar[Calendar.YEAR]
+                val month = calendar[Calendar.MONTH]
+                val date = calendar[Calendar.DATE]
+
+
+                val datePickerDialog = DatePickerDialog(
+                    requireActivity()!!,
+                    { view, year, month, dayOfMonth ->
+                        end_date_selected = dayOfMonth.toString() + "-" + (month + 1) + "-" + year
+                        binding.assDueDate.setText(end_date_selected)
+
+                    },
+                    year, month, date
+                )
+                datePickerDialog.show()
+            }
+            binding.assDueTime.setOnClickListener{
+                val calendar=Calendar.getInstance()
+                val hour=calendar[Calendar.HOUR]
+                val minute=calendar[Calendar.MINUTE]
+
+
+            }
+        }
     }
 
-//    private  fun getDateTime()
-//    {
-//        val cal:Calendar=Calendar.getInstance()
-//        day=cal.get(Calendar.DAY_OF_MONTH)
-//        month=cal.get(Calendar.MONTH)
-//        year=cal.get(Calendar.YEAR)
-//        hour=cal.get(Calendar.HOUR)
-//        minute=cal.get(Calendar.MINUTE)
-//
-//    }
-
-//    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-//        Savday=dayOfMonth
-//        Savmonth=month
-//        Savyear=year
-//
-//        getDateTime()
-//
-//        binding.dueDate.text="$Savday-$Savmonth-$Savyear"
-//    }
-
-//    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-//
-//        Savhour=hourOfDay
-//        Savminute=minute
-//
-//        getDateTime()
-//
-//        binding.dueTime.text="$Savhour:$Savminute"
-//    }
 
 }
