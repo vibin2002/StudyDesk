@@ -31,10 +31,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:fontFamily="@font/nunito_bold"
                 android:text="Signup"
                 android:textColor="@color/black"
-                android:textSize="26dp"
-                android:fontFamily="@font/nunito_bold" />
+                android:textSize="26dp" />
 
 
         </LinearLayout>
@@ -44,10 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="19dp"
+            android:fontFamily="@font/nunito"
             android:text="@string/username"
             android:textColor="@color/text_blue"
-            android:textSize="16dp"
-            android:fontFamily="@font/nunito" />
+            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/su_name"
@@ -59,14 +59,12 @@
             android:background="@drawable/background"
             android:ems="10"
             android:fontFamily="@font/nunito"
-            android:textColor="@color/black"
-            android:textSize="17dp"
             android:gravity="center_vertical"
             android:hint="Enter Username"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            android:paddingRight="10dp" />
-
+            android:paddingRight="10dp"
+            android:textSize="17dp" />
 
 
         <TextView
@@ -74,10 +72,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="19dp"
+            android:fontFamily="@font/nunito"
             android:text="@string/email"
             android:textColor="@color/text_blue"
-            android:textSize="16dp"
-            android:fontFamily="@font/nunito" />
+            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/su_email"
@@ -88,15 +86,14 @@
             android:layout_marginEnd="24dp"
             android:background="@drawable/background"
             android:ems="10"
+            android:fontFamily="@font/nunito"
             android:gravity="center_vertical"
-            android:hint="Enter Email"
 
+            android:hint="Enter Email"
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
-            android:fontFamily="@font/nunito"
-            android:textColor="@color/black"
-            android:textSize="17dp"/>
+            android:textSize="17dp" />
 
 
         <TextView
@@ -104,10 +101,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="19dp"
+            android:fontFamily="@font/nunito"
             android:text="@string/password"
             android:textColor="@color/text_blue"
-            android:textSize="16dp"
-            android:fontFamily="@font/nunito" />
+            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/su_Password"
@@ -118,13 +115,13 @@
             android:layout_marginEnd="24dp"
             android:background="@drawable/background"
             android:ems="10"
+            android:fontFamily="@font/nunito"
             android:gravity="center_vertical"
             android:hint="Enter password"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
-            android:fontFamily="@font/nunito"
-            android:textColor="@color/black"
+
             android:textSize="17dp" />
 
 
@@ -139,31 +136,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="28dp"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:weightSum="100"
-                android:layout_marginEnd="28dp">
+                android:layout_marginEnd="28dp"
+                android:orientation="horizontal"
+                android:weightSum="100">
 
                 <RadioButton
-                    android:layout_weight="50"
                     android:id="@+id/radioButtonstudent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:buttonTint="@color/text_blue"
+                    android:fontFamily="@font/nunito_semibold"
                     android:text="Student"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/nunito_semibold"
                     android:textSize="16dp" />
 
                 <RadioButton
-                    android:layout_weight="50"
                     android:id="@+id/radioButtontutor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="50"
                     android:buttonTint="@color/text_blue"
+                    android:fontFamily="@font/nunito_semibold"
                     android:text="Tutor"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/nunito_semibold"
                     android:textSize="16dp" />
             </RadioGroup>
         </LinearLayout>
@@ -178,11 +175,11 @@
             android:layout_marginEnd="23.83dp"
             android:layout_marginBottom="34dp"
             android:background="@drawable/background_solid"
+            android:fontFamily="@font/nunito_bold"
             android:gravity="center"
             android:paddingStart="120dp"
             android:paddingEnd="120dp"
             android:text="Signup"
-            android:fontFamily="@font/nunito_bold"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18dp" />
@@ -191,12 +188,12 @@
             android:id="@+id/tv_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/signin"
             android:fontFamily="@font/nunito_semibold"
             android:gravity="center"
+            android:text="@string/signin"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,26 +201,29 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="26dp"
             android:orientation="horizontal">
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:foreground="@color/med_grey"/>
+                android:foreground="@color/med_grey" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Or"
+                android:fontFamily="@font/nunito"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:textColor="@color/grey"
-                android:fontFamily="@font/nunito"/>
+                android:text="Or"
+                android:textColor="@color/grey" />
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_gravity="center"
-                android:foreground="@color/med_grey"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:foreground="@color/med_grey" />
         </LinearLayout>
 
         <TextView
@@ -231,25 +231,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
-            android:textSize="18dp"
-            android:paddingStart="15dp"
+            android:background="@drawable/background"
             android:drawableStart="@drawable/googleimg"
             android:fontFamily="@font/nunito_semibold"
-            android:textColor="@color/text_blue"
-            android:layout_marginTop="20dp"
             android:padding="12dp"
-            android:textAlignment="center"
-            android:background="@drawable/background"
+            android:paddingStart="15dp"
             android:text="Signup with Google"
-            />
-
+            android:textAlignment="center"
+            android:textColor="@color/text_blue"
+            android:textSize="18dp" />
 
 
     </LinearLayout>
-
-
-
 
 
 </ScrollView>

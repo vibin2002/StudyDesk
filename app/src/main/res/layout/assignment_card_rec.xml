@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginStart="15dp"
     app:cardCornerRadius="20dp"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -13,13 +15,13 @@
             android:id="@+id/assignment_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_semibold"
-            android:layout_marginTop="15dp"
+            android:fontFamily="@font/nunito"
+            android:layout_marginTop="10dp"
             android:drawablePadding="10dp"
-            android:drawableStart="@drawable/ic_round_school_24"
+            android:drawableStart="@drawable/ic_round_add_task_24"
             android:textColor="@color/text_blue"
             android:layout_marginStart="10dp"
-            android:textSize="26dp"
+            android:textSize="20dp"
             android:text="Assignment No 1"/>
         <TextView
             android:id="@+id/assignment_subject_name"
@@ -28,7 +30,7 @@
             android:fontFamily="@font/nunito"
             android:textColor="@color/grey"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:text="Data Structures"/>
 
@@ -48,8 +50,7 @@
                 android:gravity="fill"
                 android:drawablePadding="5dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
                 android:text="05-06-2021"/>
             <TextView
@@ -63,8 +64,7 @@
                 android:drawableStart="@drawable/clock"
                 android:textColor="@color/text_blue"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="13dp"
                 android:layout_height="wrap_content"
                 android:text="10.30am"/>
         </LinearLayout>

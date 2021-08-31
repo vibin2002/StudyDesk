@@ -67,9 +67,17 @@ class StdClassroomTestFragment(
     }
 
     private fun setupRecyclerView(testList: List<Test>) {
-        binding.stdClsTestRv.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = StudentTestAdapter(navController,testList, requireActivity())
+        if(testList.isEmpty()) {
+            binding.stdClsTestRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else {
+            binding.emptyRv.visibility = View.GONE
+            binding.stdClsTestRv.visibility = View.VISIBLE
+            binding.stdClsTestRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = StudentTestAdapter(navController,testList, requireActivity())
+            }
         }
     }
 

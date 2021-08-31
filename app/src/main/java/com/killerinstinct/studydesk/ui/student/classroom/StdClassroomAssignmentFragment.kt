@@ -68,9 +68,17 @@ class StdClassroomAssignmentFragment(
     }
 
     private fun setupRecyclerView(assignmentList: List<Assignment>) {
-        binding.stdClsAssignmentRv.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = StudentAssignmentAdapter(navController,assignmentList, requireActivity())
+        if(assignmentList.isEmpty()) {
+            binding.stdClsAssignmentRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else {
+            binding.emptyRv.visibility = View.GONE
+            binding.stdClsAssignmentRv.visibility = View.VISIBLE
+            binding.stdClsAssignmentRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = StudentAssignmentAdapter(navController,assignmentList, requireActivity())
+            }
         }
     }
 
