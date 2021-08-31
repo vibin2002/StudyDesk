@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
@@ -55,7 +56,7 @@ class TutorHomeAdapter(
         val class_name=view.findViewById<TextView>(R.id.class_name)
         val subject_name=view.findViewById<TextView>(R.id.subject_name)
         val studentCount=view.findViewById<TextView>(R.id.studnt_count)
-        val btnShare = view.findViewById<ImageButton>(R.id.btn_share)
+        val btnShare = view.findViewById<ImageView>(R.id.btn_share)
 
     }
 
