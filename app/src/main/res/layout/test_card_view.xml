@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
     app:cardCornerRadius="20dp"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -18,10 +18,10 @@
             android:fontFamily="@font/nunito_semibold"
             android:layout_marginTop="15dp"
             android:drawablePadding="10dp"
-            android:drawableStart="@drawable/ic_baseline_create_24"
+            android:drawableStart="@drawable/card_text_png"
             android:textColor="@color/text_blue"
             android:layout_marginStart="10dp"
-            android:textSize="26dp"
+            android:textSize="20dp"
             android:text="Matrix Multiplication"/>
         <TextView
             android:id="@+id/test_subject_name"
@@ -30,7 +30,7 @@
             android:fontFamily="@font/nunito"
             android:textColor="@color/grey"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:text="Algorithms"/>
 
@@ -44,14 +44,13 @@
                 android:layout_width="wrap_content"
                 android:textSize="15dp"
                 android:fontFamily="@font/nunito"
-                android:drawableStart="@drawable/date"
+                android:drawableStart="@drawable/card_calender_png"
                 android:textColor="@color/text_blue"
                 android:layout_marginStart="10dp"
                android:gravity="fill"
                 android:drawablePadding="5dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:text="05-06-2021"/>
             <TextView
@@ -62,11 +61,10 @@
                 android:gravity="fill"
                 android:drawablePadding="5dp"
                 android:fontFamily="@font/nunito"
-                android:drawableStart="@drawable/clock"
+                android:drawableStart="@drawable/card_clock_png"
                 android:textColor="@color/text_blue"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:text="10.30am"/>
         </LinearLayout>

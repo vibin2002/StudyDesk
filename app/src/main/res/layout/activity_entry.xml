@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/theme_bg"
+    android:background="#cde3f0"
     android:layout_height="match_parent"
     tools:context=".ui.EntryActivity">
 
@@ -56,6 +56,38 @@
                 android:background="@drawable/background"
                 android:text="Signin with Google"
                 />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="35dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:foreground="@color/med_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Or"
+                android:textColor="@color/grey" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:foreground="@color/med_grey" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/emailSignIn"
             android:layout_width="match_parent"
@@ -65,7 +97,7 @@
             android:textColor="@color/text_blue"
             android:textSize="18dp"
             android:fontFamily="@font/nunito_semibold"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:padding="12dp"
             android:paddingStart="15dp"
             android:drawableStart="@drawable/mailimage"

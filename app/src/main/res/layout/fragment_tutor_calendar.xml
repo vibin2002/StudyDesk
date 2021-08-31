@@ -6,14 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.tutor.drawer.dashboard.TutorCalendarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/ghostlayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="24dp">
 
         <CalendarView
             android:id="@+id/cv"
@@ -21,11 +13,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginTop="150dp"
             android:background="@drawable/card_bg"
             android:showWeekNumber="true"
             android:soundEffectsEnabled="true" />
 
-    </androidx.cardview.widget.CardView>
+
 
 
 </FrameLayout>

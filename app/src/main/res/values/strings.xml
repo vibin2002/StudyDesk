@@ -30,4 +30,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="ass_name">Assignment Name<font color='#FE4954'>*</font></string>
+    <string name="descripton">Description<font color='#FE4954'>*</font></string>
+    <string name="class_code">Classroom code<font color='#FE4954'>*</font></string>
+    <string name="duedate">Due Date<font color='#FE4954'>*</font></string>
+    <string name="duetime">Due Time<font color='#FE4954'>*</font></string>
+
+    <string name="test_name">Test Name<font color='#FE4954'>*</font></string>
+
+
 </resources>

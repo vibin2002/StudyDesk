@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
     app:cardCornerRadius="20dp"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -11,12 +13,12 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginHorizontal="8dp"
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="100">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_weight="80"
@@ -24,33 +26,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_semibold"
-                android:drawableStart="@drawable/ic_round_school_24"
-                android:textColor="@color/grey"
+                android:drawableStart="@drawable/clss_img"
+                android:textColor="@color/black"
                 android:drawablePadding="15dp"
-                android:layout_marginStart="10dp"
-                android:textSize="26dp"
+                android:textSize="20dp"
                 android:text="III CSE C"/>
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/btn_share"
-                android:padding="12dp"
-                android:background="@drawable/background"
                 android:layout_gravity="center"
                 android:layout_weight="20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_share"/>
+                android:src="@drawable/share_img"/>
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/subject_name"
             android:layout_width="match_parent"
-            android:textSize="20dp"
-            android:fontFamily="@font/nunito"
+            android:textSize="18dp"
+            android:fontFamily="@font/nunito_semibold"
             android:textColor="@color/text_blue"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:text="Android App Development"/>
         <LinearLayout
@@ -64,13 +63,12 @@
                 android:layout_width="wrap_content"
                 android:textSize="15dp"
                 android:fontFamily="@font/nunito_semibold"
-                android:drawableStart="@drawable/ic_round_person_24"
-                android:textColor="@color/grey"
+                android:drawableStart="@drawable/staff_img"
+                android:textColor="@color/black"
                 android:layout_marginStart="10dp"
                 android:gravity="fill"
                 android:drawablePadding="15dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:text="Saranya E"/>
             <TextView
@@ -79,13 +77,11 @@
                 android:textSize="15dp"
                 android:layout_weight="1"
                 android:gravity="fill"
-                android:drawableTint="@color/text_blue"
                 android:drawablePadding="15dp"
                 android:fontFamily="@font/nunito"
-                android:drawableStart="@drawable/client_drawble"
-                android:textColor="@color/grey"
+                android:drawableStart="@drawable/student_img"
+                android:textColor="@color/black"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:text="10 Students"/>
         </LinearLayout>

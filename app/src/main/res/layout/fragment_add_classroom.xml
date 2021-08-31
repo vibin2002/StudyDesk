@@ -1,75 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottomsheet"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#F0F5F8"
     android:orientation="vertical"
     android:padding="12dp"
     tools:context=".ui.tutor.drawer.home.AddClassroomFragment">
 
-
-    <EditText
-        android:id="@+id/et_classname"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background"
-        android:fontFamily="@font/nunito"
-        android:hint="Classroom Name"
-        android:inputType="text"
-        android:paddingLeft="15dp"
-        android:textColor="@color/purple_200" />
-
-    <EditText
-        android:id="@+id/et_subjectname"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background"
-        android:fontFamily="@font/nunito"
-        android:hint="Subject"
-        android:paddingLeft="15dp"
-        android:textColor="@color/purple_200" />
-
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/staff_icn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="12dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/et_classname"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/background_solid"
-            android:fontFamily="@font/nunito_semibold"
-            android:padding="10dp"
-            android:text="Cancel"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background"
+            android:fontFamily="@font/nunito"
+            android:hint="Classroom Name"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textColor="@color/black" />
 
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/et_subjectname"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginStart="25dp"
-            android:layout_weight="1"
-            android:background="@drawable/background_solid"
-            android:fontFamily="@font/nunito_semibold"
-            android:padding="10dp"
-            android:text="Add"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background"
+            android:fontFamily="@font/nunito"
+            android:hint="Subject"
+            android:paddingLeft="15dp"
+            android:textColor="@color/black" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_solid"
+                android:fontFamily="@font/nunito_bold"
+                android:padding="10dp"
+                android:text="Cancel"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="25dp"
+                android:layout_weight="1"
+                android:background="@drawable/background_solid"
+                android:fontFamily="@font/nunito_bold"
+                android:padding="10dp"
+                android:text="Add"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

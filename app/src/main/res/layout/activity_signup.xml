@@ -25,7 +25,7 @@
                 android:layout_height="34dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="28dp"
-                android:src="@drawable/ic_baseline_person_add_24" />
+                android:src="@drawable/signup_img" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -61,6 +61,7 @@
             android:fontFamily="@font/nunito"
             android:gravity="center_vertical"
             android:hint="Enter Username"
+            android:textColor="@color/black"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
@@ -84,6 +85,7 @@
             android:layout_marginStart="26dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
+            android:textColor="@color/black"
             android:background="@drawable/background"
             android:ems="10"
             android:fontFamily="@font/nunito"
@@ -112,6 +114,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/black"
             android:layout_marginEnd="24dp"
             android:background="@drawable/background"
             android:ems="10"
@@ -171,9 +174,9 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="23.83dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="23.83dp"
-            android:layout_marginBottom="34dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/background_solid"
             android:fontFamily="@font/nunito_bold"
             android:gravity="center"
@@ -194,43 +197,13 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="26dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:foreground="@color/med_grey" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="Or"
-                android:textColor="@color/grey" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:foreground="@color/med_grey" />
-        </LinearLayout>
 
         <TextView
             android:id="@+id/googleSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
+            android:visibility="gone"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
             android:background="@drawable/background"
