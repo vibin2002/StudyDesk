@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/nav_header_height"
+    android:layout_height="wrap_content"
     android:background="#DCEDF8"
     android:gravity="bottom"
     android:orientation="vertical"
@@ -13,6 +13,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
+        android:layout_marginTop="24dp"
         android:id="@+id/tutor_drawer_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,6 +22,7 @@
         app:srcCompat="@drawable/tutor_nav_logo" />
 
     <TextView
+        android:layout_marginTop="8dp"
         android:id="@+id/tutor_drawer_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

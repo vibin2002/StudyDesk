@@ -30,7 +30,7 @@ class StudentAssignmentFragment(
         viewModel.getAllAssignments{  gotAssignments ->
             if (gotAssignments){
                 Log.d("gotAssignments", "Success")
-                Toast.makeText(requireActivity(), "Assignments fetched", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireActivity(), "Assignments fetched", Toast.LENGTH_SHORT).show()
             } else {
                 Log.d("gotAssignments", "Failure")
                 Toast.makeText(requireActivity(), "Unable to fetch Assignments", Toast.LENGTH_SHORT).show()

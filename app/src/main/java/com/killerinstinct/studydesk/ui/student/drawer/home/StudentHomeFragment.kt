@@ -30,9 +30,9 @@ class StudentHomeFragment : Fragment(R.layout.fragment_student_home) {
         super.onCreate(savedInstanceState)
         viewModel.getStudentData{ hasStudent ->
             if (hasStudent){
-                Toast.makeText(requireActivity(), "Student fetched", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireActivity(), "Student fetched", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireActivity(), "Unable to fetch student", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "Network Error", Toast.LENGTH_SHORT).show()
             }
         }
     }

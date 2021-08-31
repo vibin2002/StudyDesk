@@ -27,9 +27,9 @@ class TutorHomeFragment : Fragment(R.layout.fragment_tutor_home) {
         super.onCreate(savedInstanceState)
         viewModel.getTutorData{ hasTutor ->
             if (hasTutor){
-                Toast.makeText(requireActivity(), "Tutor fetched", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireActivity(), "Tutor fetched", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireActivity(), "Unable to fetch tutor", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "Network Error", Toast.LENGTH_SHORT).show()
             }
         }
 

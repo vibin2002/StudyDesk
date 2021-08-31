@@ -47,7 +47,7 @@ class TutorMainActivity : AppCompatActivity() {
 
         val headerView = navView.getHeaderView(0)
         val headerBinding = NavHeaderTutorMainBinding.bind(headerView)
-        headerBinding.tutorDrawerName.text = currUser?.displayName ?: "NULL"
+        headerBinding.tutorDrawerName.text = currUser?.displayName ?: "StudyDesk"
         headerBinding.tutorDrawerEmail.text = currUser?.email ?: "NULL"
     }
 

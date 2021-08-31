@@ -29,7 +29,7 @@ class StudentTestFragment(
         viewModel.getAllTests { gotTests ->
             if (gotTests){
                 Log.d("gotTests", "Success")
-                Toast.makeText(requireActivity(), "Tests fetched", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireActivity(), "Tests fetched", Toast.LENGTH_SHORT).show()
             } else {
                 Log.d("gotTests", "Failure")
                 Toast.makeText(requireActivity(), "Unable to fetch Tests", Toast.LENGTH_SHORT).show()
