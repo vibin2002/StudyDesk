@@ -6,15 +6,19 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.adapters.TutorAssignmentAdapter
+import com.killerinstinct.studydesk.adapters.dashboardAdaps.DashTutAssignmentAdapter
 import com.killerinstinct.studydesk.data.models.Assignment
 import com.killerinstinct.studydesk.databinding.FragmentTutorAssignmentBinding
 import com.killerinstinct.studydesk.ui.tutor.TutorMainViewModel
 
-class TutorAssignmentFragment : Fragment(R.layout.fragment_tutor_assignment) {
+class TutorAssignmentFragment(
+    private val navController: NavController
+) : Fragment(R.layout.fragment_tutor_assignment) {
 
     lateinit var binding: FragmentTutorAssignmentBinding
     private val viewModel: TutorMainViewModel by activityViewModels()
@@ -56,7 +60,7 @@ class TutorAssignmentFragment : Fragment(R.layout.fragment_tutor_assignment) {
             binding.tutAssignmentRv.visibility = View.VISIBLE
             binding.tutAssignmentRv.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = TutorAssignmentAdapter(findNavController(),assignmentList, requireActivity())
+                adapter = DashTutAssignmentAdapter(navController,assignmentList, requireActivity())
             }
         }
     }

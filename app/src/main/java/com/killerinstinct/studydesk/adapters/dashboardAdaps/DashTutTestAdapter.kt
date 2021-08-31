@@ -9,29 +9,28 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.data.models.Test
-import com.killerinstinct.studydesk.ui.student.drawer.dashboard.StudentDashBoardFragmentDirections
 import com.killerinstinct.studydesk.ui.tutor.drawer.dashboard.TutorDashBoardFragmentDirections
 
-class DashStdTestAdapter (
+class DashTutTestAdapter (
     private val navController: NavController,
     private var list:List<Test>,
     private val context: Context
-): RecyclerView.Adapter<DashStdTestAdapter.DashboardStdTestViewHolder>() {
+): RecyclerView.Adapter<DashTutTestAdapter.DashTutTestViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): DashStdTestAdapter.DashboardStdTestViewHolder {
+    ): DashTutTestAdapter.DashTutTestViewHolder {
 
-        return DashboardStdTestViewHolder(
+        return DashTutTestViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.test_card_view, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: DashStdTestAdapter.DashboardStdTestViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DashTutTestAdapter.DashTutTestViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
-            val action = StudentDashBoardFragmentDirections.actionNavGalleryToSubmissionFragment2(
+            val action = TutorDashBoardFragmentDirections.actionTutorDashBoardFragmentToSubmissionFragment(
                 list[position].title,
                 list[position].subject,
                 list[position].date ,
@@ -50,7 +49,7 @@ class DashStdTestAdapter (
         return list.size
     }
 
-    inner class DashboardStdTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class DashTutTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name = view.findViewById<TextView>(R.id.test_name)
         val sub_name = view.findViewById<TextView>(R.id.test_subject_name)
         val dueDate= view.findViewById<TextView>(R.id.test_dueDate)

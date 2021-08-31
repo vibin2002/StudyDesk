@@ -62,7 +62,7 @@
     <fragment
         android:id="@+id/tutorClassroomFragment"
         android:name="com.killerinstinct.studydesk.ui.tutor.classroom.TutorClassroomFragment"
-        android:label="fragment_tutor_classroom"
+        android:label="Classroom"
         tools:layout="@layout/fragment_tutor_classroom" >
         <argument
             android:name="adapterPosition"
@@ -79,7 +79,7 @@
     <fragment
         android:id="@+id/submissionFragment"
         android:name="com.killerinstinct.studydesk.ui.SubmissionFragment"
-        android:label="fragment_submission"
+        android:label="Submission"
         tools:layout="@layout/fragment_submission" >
         <argument
             android:name="title"

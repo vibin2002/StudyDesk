@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.killerinstinct.studydesk.databinding.FragmentTutorDashBoardBinding
 
@@ -25,7 +26,7 @@ class TutorDashBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewPagerAdapter = TutorViewPagerAdapter(requireActivity())
+        val viewPagerAdapter = TutorViewPagerAdapter(findNavController(),requireActivity())
         binding.tutViewpager.adapter = viewPagerAdapter
         TabLayoutMediator(
             binding.tutTablayout, binding.tutViewpager

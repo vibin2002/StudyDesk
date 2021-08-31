@@ -6,16 +6,18 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.R
-import com.killerinstinct.studydesk.adapters.TutorAssignmentAdapter
-import com.killerinstinct.studydesk.adapters.TutorTestAdapter
+import com.killerinstinct.studydesk.adapters.dashboardAdaps.DashStdTestAdapter
+import com.killerinstinct.studydesk.adapters.dashboardAdaps.DashTutTestAdapter
 import com.killerinstinct.studydesk.data.models.Test
 import com.killerinstinct.studydesk.databinding.FragmentTutorTestBinding
 import com.killerinstinct.studydesk.ui.tutor.TutorMainViewModel
 
-class TutorTestFragment : Fragment(R.layout.fragment_tutor_test) {
+class TutorTestFragment(
+    private val navController: NavController
+) : Fragment(R.layout.fragment_tutor_test) {
 
     lateinit var binding: FragmentTutorTestBinding
     private val  viewModel: TutorMainViewModel by activityViewModels()
@@ -59,7 +61,7 @@ class TutorTestFragment : Fragment(R.layout.fragment_tutor_test) {
             binding.tutTestsRv.visibility = View.VISIBLE
             binding.tutTestsRv.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = TutorTestAdapter(findNavController(),testsList, requireActivity())
+                adapter = DashTutTestAdapter(navController,testsList, requireActivity())
             }
         }
     }

@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/submissionFragment2"
         android:name="com.killerinstinct.studydesk.ui.SubmissionFragment"
-        android:label="fragment_submission"
+        android:label="Submission"
         tools:layout="@layout/fragment_submission" >
         <argument
             android:name="title"
