@@ -1,11 +1,13 @@
 package com.killerinstinct.studydesk.ui
 
 import android.app.Dialog
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.RadioButton
@@ -34,6 +36,7 @@ class SignupActivity : AppCompatActivity() {
     private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     var desig = "NULL"
+    private lateinit var progressDialog: ProgressDialog
     lateinit var binding: ActivitySignupBinding
     private val signUpViewModel: SignUpViewModel by viewModels()
     val context: Context = this
@@ -42,6 +45,8 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        progressDialog = ProgressDialog(this)
 
         createRequest()
         //dialog Code
@@ -69,23 +74,38 @@ class SignupActivity : AppCompatActivity() {
 
 
         binding.infoSave.setOnClickListener {
-            signUpViewModel.signUpWithCustomAuth(
-                binding.suName.text.toString(),
-                binding.suEmail.text.toString(),
-                binding.suPassword.text.toString(),
-                getDesignation()
-            ) { signUpState ->
-                when (signUpState) {
-                    "Student" -> {
-                        startActivity(Intent(this,StudentMainActivity::class.java))
-                        finish()
-                    }
-                    "Tutor" -> {
-                        startActivity(Intent(this,TutorMainActivity::class.java))
-                        finish()
-                    }
-                    else -> {
-                        Toast.makeText(this, signUpState, Toast.LENGTH_SHORT).show()
+
+            //if the fields are empty
+            if (TextUtils.isEmpty(binding.suName.toString()) || TextUtils.isEmpty(binding.suEmail.toString())
+                || TextUtils.isEmpty(binding.suPassword.toString())) {
+                Toast.makeText(this, "please fill the field!", Toast.LENGTH_SHORT).show()
+            } else {
+                progressDialog!!.setMessage("Loging Please wait")
+
+                progressDialog!!.show()
+
+
+                signUpViewModel.signUpWithCustomAuth(
+                    binding.suName.text.toString(),
+                    binding.suEmail.text.toString(),
+                    binding.suPassword.text.toString(),
+                    getDesignation()
+                ) { signUpState ->
+                    when (signUpState) {
+                        "Student" -> {
+                            progressDialog!!.dismiss()
+                            startActivity(Intent(this, StudentMainActivity::class.java))
+                            finish()
+                        }
+                        "Tutor" -> {
+                            progressDialog!!.dismiss()
+                            startActivity(Intent(this, TutorMainActivity::class.java))
+                            finish()
+                        }
+                        else -> {
+                            progressDialog!!.dismiss()
+                            Toast.makeText(this, signUpState, Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }
