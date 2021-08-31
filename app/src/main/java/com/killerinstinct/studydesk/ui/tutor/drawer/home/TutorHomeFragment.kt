@@ -36,9 +36,18 @@ class TutorHomeFragment : Fragment(R.layout.fragment_tutor_home) {
     }
 
     private fun setupRecyclerView(classRoomList: List<ClassRoom>) {
-        binding.tutHomeRv.apply {
-            layoutManager=LinearLayoutManager(context)
-            adapter= TutorHomeAdapter(findNavController(),classRoomList,requireActivity())
+        if(classRoomList.isEmpty()) {
+           binding.tutHomeRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else
+        {
+            binding.emptyRv.visibility=View.GONE
+            binding.tutHomeRv.visibility=View.VISIBLE
+            binding.tutHomeRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = TutorHomeAdapter(classRoomList, requireActivity())
+            }
         }
     }
 

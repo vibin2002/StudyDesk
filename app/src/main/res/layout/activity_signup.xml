@@ -25,7 +25,7 @@
                 android:layout_height="34dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="28dp"
-                android:src="@drawable/ic_round_person_24" />
+                android:src="@drawable/ic_baseline_person_add_24" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:text="Signup"
                 android:textColor="@color/black"
                 android:textSize="26dp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_bold" />
 
 
         </LinearLayout>
@@ -44,10 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="19dp"
-            android:text="Username*"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:text="@string/username"
+            android:textColor="@color/text_blue"
+            android:textSize="16dp"
+            android:fontFamily="@font/nunito" />
 
         <EditText
             android:id="@+id/su_name"
@@ -58,12 +58,14 @@
             android:layout_marginEnd="24dp"
             android:background="@drawable/background"
             android:ems="10"
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/black"
+            android:textSize="17dp"
             android:gravity="center_vertical"
             android:hint="Enter Username"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            android:paddingRight="10dp"
-            android:textSize="14dp" />
+            android:paddingRight="10dp" />
 
 
 
@@ -72,10 +74,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="19dp"
-            android:text="Email*"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:text="@string/email"
+            android:textColor="@color/text_blue"
+            android:textSize="16dp"
+            android:fontFamily="@font/nunito" />
 
         <EditText
             android:id="@+id/su_email"
@@ -88,10 +90,13 @@
             android:ems="10"
             android:gravity="center_vertical"
             android:hint="Enter Email"
+
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
-            android:textSize="14dp" />
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/black"
+            android:textSize="17dp"/>
 
 
         <TextView
@@ -99,10 +104,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="19dp"
-            android:text="Password*"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:text="@string/password"
+            android:textColor="@color/text_blue"
+            android:textSize="16dp"
+            android:fontFamily="@font/nunito" />
 
         <EditText
             android:id="@+id/su_Password"
@@ -118,7 +123,9 @@
             android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:paddingRight="10dp"
-            android:textSize="14dp" />
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
 
 
         <LinearLayout
@@ -144,7 +151,8 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/text_blue"
                     android:text="Student"
-                    android:textColor="@color/text_blue"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_semibold"
                     android:textSize="16dp" />
 
                 <RadioButton
@@ -154,7 +162,8 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/text_blue"
                     android:text="Tutor"
-                    android:textColor="@color/text_blue"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_semibold"
                     android:textSize="16dp" />
             </RadioGroup>
         </LinearLayout>
@@ -173,6 +182,7 @@
             android:paddingStart="120dp"
             android:paddingEnd="120dp"
             android:text="Signup"
+            android:fontFamily="@font/nunito_bold"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18dp" />
@@ -181,11 +191,40 @@
             android:id="@+id/tv_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already have a account? Sign in"
+            android:text="@string/signin"
+            android:fontFamily="@font/nunito_semibold"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="16sp"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="26dp"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:foreground="@color/med_grey"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Or"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/nunito"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:foreground="@color/med_grey"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/googleSignUp"

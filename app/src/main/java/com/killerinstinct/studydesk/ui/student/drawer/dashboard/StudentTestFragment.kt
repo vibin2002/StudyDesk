@@ -49,9 +49,17 @@ class StudentTestFragment : Fragment(R.layout.fragment_student_test) {
     }
 
     private fun setUpRecyclerView(testsList: List<Test>){
-        binding.stdTestRv.apply {
-            layoutManager= LinearLayoutManager(context)
-            adapter= StudentTestAdapter(testsList,requireActivity())
+        if(testsList.isEmpty()) {
+            binding.stdTestRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else {
+            binding.emptyRv.visibility = View.GONE
+            binding.stdTestRv.visibility = View.VISIBLE
+            binding.stdTestRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = StudentTestAdapter(testsList, requireActivity())
+            }
         }
     }
 

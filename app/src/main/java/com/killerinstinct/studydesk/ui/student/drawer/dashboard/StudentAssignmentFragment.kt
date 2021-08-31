@@ -52,9 +52,17 @@ class StudentAssignmentFragment : Fragment(R.layout.fragment_student_assignment)
     }
 
     private fun setupRecyclerView(assignmentList: List<Assignment>) {
-        binding.stdAssignmentRv.apply {
-            layoutManager= LinearLayoutManager(context)
-            adapter= StudentAssignmentAdapter(assignmentList,requireActivity())
+        if(assignmentList.isEmpty()) {
+            binding.stdAssignmentRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else {
+            binding.emptyRv.visibility = View.GONE
+            binding.stdAssignmentRv.visibility = View.VISIBLE
+            binding.stdAssignmentRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = StudentAssignmentAdapter(assignmentList, requireActivity())
+            }
         }
     }
 

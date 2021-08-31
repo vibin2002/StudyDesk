@@ -22,6 +22,10 @@
     <string name="menu_home">Home</string>
     <string name="menu_dashboard">DashBoard</string>
     <string name="menu_slideshow">TODO</string>
+    <string name="username">Username<font color='#000000'>*</font></string>
+    <string name="password">Password<font color='#000000'>*</font></string>
+    <string name="email">Email<font color='#000000'>*</font></string>
+    <string name="signin">Already have a account?<font color='#3CA6DA'> Sign in</font></string>
     <string name="dontHavbtn">Don\'t have an account yet?<font color='#3CA6DA'> Sign Up.</font></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

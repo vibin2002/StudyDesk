@@ -38,9 +38,17 @@ class StudentHomeFragment : Fragment(R.layout.fragment_student_home) {
     }
 
     private fun setupRecyclerView(classRoomList: List<ClassRoom>) {
-        binding.stdHomeRv.apply {
-            layoutManager= LinearLayoutManager(context)
-            adapter= StudentHomeAdapter(findNavController(),classRoomList,requireActivity())
+        if(classRoomList.isEmpty()) {
+            binding.stdHomeRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else {
+            binding.emptyRv.visibility = View.GONE
+            binding.stdHomeRv.visibility = View.VISIBLE
+            binding.stdHomeRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = StudentHomeAdapter(classRoomList, requireActivity())
+            }
         }
     }
 
