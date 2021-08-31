@@ -69,9 +69,17 @@ class TutorClassroomTestFragment(
     }
 
     private fun setupRecyclerView(testList: List<Test>) {
-        binding.tutClsTestRv.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = TutorTestAdapter(testList, requireActivity())
+        if(testList.isEmpty()) {
+            binding.tutClsTestRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else {
+            binding.emptyRv.visibility = View.GONE
+            binding.tutClsTestRv.visibility = View.VISIBLE
+            binding.tutClsTestRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = TutorTestAdapter(testList, requireActivity())
+            }
         }
     }
 

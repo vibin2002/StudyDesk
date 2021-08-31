@@ -69,9 +69,17 @@ class TutorClassroomAssignmentFragment(
     }
 
     private fun setupRecyclerView(assignmentList: List<Assignment>) {
-        binding.tutClsAssignmentRv.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = TutorAssignmentAdapter(assignmentList, requireActivity())
+        if(assignmentList.isEmpty()) {
+            binding.tutClsAssignmentRv.visibility=View.GONE
+            binding.emptyRv.visibility=View.VISIBLE
+        }
+        else {
+            binding.emptyRv.visibility = View.GONE
+            binding.tutClsAssignmentRv.visibility = View.VISIBLE
+            binding.tutClsAssignmentRv.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = TutorAssignmentAdapter(assignmentList, requireActivity())
+            }
         }
     }
 }
