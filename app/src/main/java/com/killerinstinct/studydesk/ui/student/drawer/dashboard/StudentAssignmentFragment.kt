@@ -2,22 +2,24 @@ package com.killerinstinct.studydesk.ui.student.drawer.dashboard
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.adapters.StudentAssignmentAdapter
-import com.killerinstinct.studydesk.adapters.TutorAssignmentAdapter
+import com.killerinstinct.studydesk.adapters.dashboardAdaps.DashStdAssignmentAdapter
 import com.killerinstinct.studydesk.data.models.Assignment
 import com.killerinstinct.studydesk.databinding.FragmentStudentAssignmentBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainViewModel
 
 
-class StudentAssignmentFragment : Fragment(R.layout.fragment_student_assignment) {
+class StudentAssignmentFragment(
+    private val navController: NavController,
+) : Fragment(R.layout.fragment_student_assignment) {
 
     lateinit var binding: FragmentStudentAssignmentBinding
     private val viewModel: StudentMainViewModel by activityViewModels()
@@ -46,7 +48,7 @@ class StudentAssignmentFragment : Fragment(R.layout.fragment_student_assignment)
 
     override fun onStart() {
         super.onStart()
-        viewModel.assignments.observe(this){
+        viewModel.assignments.observe(this) {
             setupRecyclerView(it)
         }
     }
@@ -61,7 +63,7 @@ class StudentAssignmentFragment : Fragment(R.layout.fragment_student_assignment)
             binding.stdAssignmentRv.visibility = View.VISIBLE
             binding.stdAssignmentRv.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = StudentAssignmentAdapter(assignmentList, requireActivity())
+                adapter = DashStdAssignmentAdapter(navController, assignmentList, requireActivity())
             }
         }
     }

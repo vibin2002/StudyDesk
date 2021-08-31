@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.adapters.StudentAssignmentAdapter
@@ -18,6 +19,7 @@ import com.killerinstinct.studydesk.ui.student.StudentMainViewModel
 
 
 class StdClassroomAssignmentFragment(
+    private val navController: NavController,
     private val code: String,
 ) : Fragment() {
 
@@ -68,7 +70,7 @@ class StdClassroomAssignmentFragment(
     private fun setupRecyclerView(assignmentList: List<Assignment>) {
         binding.stdClsAssignmentRv.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = StudentAssignmentAdapter(assignmentList, requireActivity())
+            adapter = StudentAssignmentAdapter(navController,assignmentList, requireActivity())
         }
     }
 

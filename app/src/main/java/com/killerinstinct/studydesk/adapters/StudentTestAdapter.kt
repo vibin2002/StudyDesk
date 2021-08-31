@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.data.models.Test
+import com.killerinstinct.studydesk.ui.student.classroom.StudentClassroomFragmentDirections
 
 
 class StudentTestAdapter (
-
+    private val navController: NavController,
     private var list:List<Test>,
     private val context: Context
 ): RecyclerView.Adapter<StudentTestAdapter.StudentTestViewHolder>() {
@@ -28,6 +30,15 @@ class StudentTestAdapter (
     }
 
     override fun onBindViewHolder(holder: StudentTestAdapter.StudentTestViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            val action = StudentClassroomFragmentDirections.actionStudentClassroomFragment2ToSubmissionFragment2(
+                list[position].title,
+                list[position].subject,
+                list[position].date ,
+                list[position].time
+            )
+            navController.navigate(action)
+        }
         holder.name.text = list[position].title
         holder.sub_name.text = list[position].subject
         holder.dueDate.text = list[position].date

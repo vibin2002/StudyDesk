@@ -46,7 +46,7 @@ class TutorHomeFragment : Fragment(R.layout.fragment_tutor_home) {
             binding.tutHomeRv.visibility=View.VISIBLE
             binding.tutHomeRv.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = TutorHomeAdapter(classRoomList, requireActivity())
+                adapter = TutorHomeAdapter(findNavController(),classRoomList, requireActivity())
             }
         }
     }

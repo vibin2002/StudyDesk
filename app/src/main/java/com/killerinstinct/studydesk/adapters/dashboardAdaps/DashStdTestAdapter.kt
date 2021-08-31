@@ -1,4 +1,4 @@
-package com.killerinstinct.studydesk.adapters
+package com.killerinstinct.studydesk.adapters.dashboardAdaps
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,28 +9,28 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.data.models.Test
-import com.killerinstinct.studydesk.ui.tutor.classroom.TutorClassroomFragmentDirections
+import com.killerinstinct.studydesk.ui.student.drawer.dashboard.StudentDashBoardFragmentDirections
 
-class TutorTestAdapter (
+class DashStdTestAdapter (
     private val navController: NavController,
     private var list:List<Test>,
     private val context: Context
-): RecyclerView.Adapter<TutorTestAdapter.TutorTestViewHolder>() {
+): RecyclerView.Adapter<DashStdTestAdapter.DashboardStdTestViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TutorTestAdapter.TutorTestViewHolder {
+    ): DashStdTestAdapter.DashboardStdTestViewHolder {
 
-        return TutorTestViewHolder(
+        return DashboardStdTestViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.test_card_view, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: TutorTestAdapter.TutorTestViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DashStdTestAdapter.DashboardStdTestViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
-            val action = TutorClassroomFragmentDirections.actionTutorClassroomFragmentToSubmissionFragment(
+            val action = StudentDashBoardFragmentDirections.actionNavGalleryToSubmissionFragment2(
                 list[position].title,
                 list[position].subject,
                 list[position].date ,
@@ -49,7 +49,7 @@ class TutorTestAdapter (
         return list.size
     }
 
-    inner class TutorTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class DashboardStdTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name = view.findViewById<TextView>(R.id.test_name)
         val sub_name = view.findViewById<TextView>(R.id.test_subject_name)
         val dueDate= view.findViewById<TextView>(R.id.test_dueDate)

@@ -6,14 +6,19 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.adapters.StudentTestAdapter
+import com.killerinstinct.studydesk.adapters.dashboardAdaps.DashStdTestAdapter
 import com.killerinstinct.studydesk.data.models.Test
 import com.killerinstinct.studydesk.databinding.FragmentStudentTestBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainViewModel
 
-class StudentTestFragment : Fragment(R.layout.fragment_student_test) {
+class StudentTestFragment(
+    private val navController: NavController,
+) : Fragment(R.layout.fragment_student_test) {
 
     lateinit var binding: FragmentStudentTestBinding
     private val viewModel: StudentMainViewModel by activityViewModels()
@@ -58,7 +63,7 @@ class StudentTestFragment : Fragment(R.layout.fragment_student_test) {
             binding.stdTestRv.visibility = View.VISIBLE
             binding.stdTestRv.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = StudentTestAdapter(testsList, requireActivity())
+                adapter = DashStdTestAdapter(navController,testsList, requireActivity())
             }
         }
     }

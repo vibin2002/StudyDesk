@@ -2,9 +2,11 @@ package com.killerinstinct.studydesk.ui.student.classroom
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.NavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class StdClassroomViewPager(
+    private val navController: NavController,
     private val fragmentActivity: FragmentActivity,
     private val code: String
 ) :
@@ -17,13 +19,13 @@ class StdClassroomViewPager(
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> {
-                StdClassroomAssignmentFragment(code)
+                StdClassroomAssignmentFragment(navController,code)
             }
             1 -> {
-                StdClassroomTestFragment(code)
+                StdClassroomTestFragment(navController, code)
             }
             else -> {
-                StdClassroomAssignmentFragment(code)
+                StdClassroomAssignmentFragment(navController,code)
             }
         }
     }

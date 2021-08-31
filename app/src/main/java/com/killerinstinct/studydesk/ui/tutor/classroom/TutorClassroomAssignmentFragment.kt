@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.adapters.StudentAssignmentAdapter
@@ -20,11 +23,11 @@ import com.killerinstinct.studydesk.ui.tutor.TutorMainViewModel
 
 
 class TutorClassroomAssignmentFragment(
+    private val navController: NavController,
     private val code: String,
 ) : Fragment() {
 
     lateinit var binding: FragmentTutorClassroomAssignmentBinding
-
     private val viewModel: TutorMainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +74,7 @@ class TutorClassroomAssignmentFragment(
     private fun setupRecyclerView(assignmentList: List<Assignment>) {
         binding.tutClsAssignmentRv.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = TutorAssignmentAdapter(assignmentList, requireActivity())
+            adapter = TutorAssignmentAdapter(navController,assignmentList, requireActivity())
         }
     }
 }

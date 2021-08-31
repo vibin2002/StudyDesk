@@ -8,13 +8,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.adapters.StudentTestAdapter
 import com.killerinstinct.studydesk.data.models.Test
 import com.killerinstinct.studydesk.databinding.FragmentStdClassroomTestBinding
 import com.killerinstinct.studydesk.ui.student.StudentMainViewModel
 
-class StdClassroomTestFragment(private val code: String) :
+class StdClassroomTestFragment(
+    private val navController: NavController,
+    private val code: String
+    ):
     Fragment() {
 
     lateinit var binding: FragmentStdClassroomTestBinding
@@ -65,7 +69,7 @@ class StdClassroomTestFragment(private val code: String) :
     private fun setupRecyclerView(testList: List<Test>) {
         binding.stdClsTestRv.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = StudentTestAdapter(testList, requireActivity())
+            adapter = StudentTestAdapter(navController,testList, requireActivity())
         }
     }
 

@@ -31,7 +31,7 @@ class StudentClassroomFragment : Fragment(R.layout.fragment_student_classroom) {
 
 
 
-        val viewPagerAdapter = StdClassroomViewPager(requireActivity(), code)
+        val viewPagerAdapter = StdClassroomViewPager(findNavController(),requireActivity(), code)
         binding.stdClsViewpager.adapter = viewPagerAdapter
         TabLayoutMediator(
             binding.stdClsTablayout, binding.stdClsViewpager

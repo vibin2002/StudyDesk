@@ -2,10 +2,14 @@ package com.killerinstinct.studydesk.ui.student.drawer.dashboard
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.NavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.killerinstinct.studydesk.ui.tutor.drawer.dashboard.TutorDashBoardFragment
 
-class StudentViewPagerAdapter(private val fragmentActivity: FragmentActivity) :
+class StudentViewPagerAdapter(
+    private val navController: NavController,
+    private val fragmentActivity: FragmentActivity
+    ) :
     FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int {
@@ -15,16 +19,16 @@ class StudentViewPagerAdapter(private val fragmentActivity: FragmentActivity) :
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> {
-                StudentAssignmentFragment()
+                StudentAssignmentFragment(navController)
             }
             1 -> {
-                StudentTestFragment()
+                StudentTestFragment(navController)
             }
             2 -> {
                 StudentCalendarFragment()
             }
             else -> {
-                StudentAssignmentFragment()
+                StudentAssignmentFragment(navController)
             }
         }
     }

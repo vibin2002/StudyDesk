@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.adapters.TutorAssignmentAdapter
@@ -55,7 +56,7 @@ class TutorAssignmentFragment : Fragment(R.layout.fragment_tutor_assignment) {
             binding.tutAssignmentRv.visibility = View.VISIBLE
             binding.tutAssignmentRv.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = TutorAssignmentAdapter(assignmentList, requireActivity())
+                adapter = TutorAssignmentAdapter(findNavController(),assignmentList, requireActivity())
             }
         }
     }

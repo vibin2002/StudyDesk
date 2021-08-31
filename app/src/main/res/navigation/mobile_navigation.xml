@@ -25,7 +25,11 @@
         android:id="@+id/nav_gallery"
         android:name="com.killerinstinct.studydesk.ui.student.drawer.dashboard.StudentDashBoardFragment"
         android:label="@string/menu_dashboard"
-        tools:layout="@layout/fragment_student_dashboard" />
+        tools:layout="@layout/fragment_student_dashboard" >
+        <action
+            android:id="@+id/action_nav_gallery_to_submissionFragment2"
+            app:destination="@id/submissionFragment2" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -50,5 +54,30 @@
             android:name="classRoomName"
             app:argType="string"
             android:defaultValue='"NULL"' />
+        <action
+            android:id="@+id/action_studentClassroomFragment2_to_submissionFragment2"
+            app:destination="@id/submissionFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/submissionFragment2"
+        android:name="com.killerinstinct.studydesk.ui.SubmissionFragment"
+        android:label="fragment_submission"
+        tools:layout="@layout/fragment_submission" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="NULL" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue="NULL" />
+        <argument
+            android:name="dueDate"
+            app:argType="string"
+            android:defaultValue="NULL" />
+        <argument
+            android:name="dueTime"
+            app:argType="string"
+            android:defaultValue="NULL" />
     </fragment>
 </navigation>
