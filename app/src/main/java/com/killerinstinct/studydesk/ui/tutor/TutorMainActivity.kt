@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -57,32 +58,36 @@ class TutorMainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.item_classroom -> {
-                navController.navigateUp()
-                navController.navigate(R.id.action_tutorHomeFragment_to_addClassroomFragment)
-                return true
-            }
-            R.id.item_assignment -> {
-                navController.navigateUp()
-                navController.navigate(R.id.action_tutorHomeFragment_to_addAssignmentFragment)
-                return true
-            }
-            R.id.item_test -> {
-                navController.navigateUp()
-                navController.navigate(R.id.action_tutorHomeFragment_to_addTestFragment)
-                return true
-            }
-            R.id.item_logout -> {
-                FirebaseAuth.getInstance().signOut()
-                startActivity(Intent(this,EntryActivity::class.java))
-                finish()
-                return true
-            }
+        try {
+            return when (item.itemId) {
+                R.id.item_classroom -> {
+//                navController.navigateUp()
+                    navController.navigate(R.id.action_tutorHomeFragment_to_addClassroomFragment)
+                    return true
+                }
+                R.id.item_assignment -> {
+//                navController.navigateUp()
+                    navController.navigate(R.id.action_tutorHomeFragment_to_addAssignmentFragment)
+                    return true
+                }
+                R.id.item_test -> {
+//                navController.navigateUp()
+                    navController.navigate(R.id.action_tutorHomeFragment_to_addTestFragment)
+                    return true
+                }
+                R.id.item_logout -> {
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(this, EntryActivity::class.java))
+                    finish()
+                    return true
+                }
 
-            else -> super.onOptionsItemSelected(item)
+                else -> super.onOptionsItemSelected(item)
+            }
+        }catch (e: Exception){
+            navController.navigateUp()
         }
-
+        return true
     }
 
     override fun onSupportNavigateUp(): Boolean {
