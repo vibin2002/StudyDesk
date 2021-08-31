@@ -3,19 +3,23 @@ package com.killerinstinct.studydesk.adapters
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.data.models.ClassRoom
+import com.killerinstinct.studydesk.ui.student.drawer.home.StudentHomeFragmentDirections
+import kotlin.math.log
 
 
 class StudentHomeAdapter(
-
+    private val navController: NavController,
     private var list:List<ClassRoom>,
     private val context: Context
 ): RecyclerView.Adapter<StudentHomeAdapter.StudentHomeViewHolder>() {
@@ -31,6 +35,10 @@ class StudentHomeAdapter(
     }
 
     override fun onBindViewHolder(holder: StudentHomeAdapter.StudentHomeViewHolder, position: Int) {
+        holder.itemView.setOnClickListener{
+            val action = StudentHomeFragmentDirections.actionNavHomeToStudentClassroomFragment22(list[position].code)
+            navController.navigate(action)
+        }
         holder.class_name.text=list[position].className
         holder.studentName.text=list[position].tutor
         holder.subject_name.text=list[position].subject

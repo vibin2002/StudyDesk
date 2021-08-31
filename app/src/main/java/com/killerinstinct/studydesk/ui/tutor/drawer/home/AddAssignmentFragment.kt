@@ -35,11 +35,11 @@ class AddAssignmentFragment : Fragment(R.layout.fragment_add_assignment)
         binding.btnAdd.setOnClickListener {
             val navController = findNavController()
             viewModel.addAssignment(
-                "Title",
-                "Descrpfowenf",
-                "rOZ3S2",
-                "123456",
-                "09:12",
+                binding.assignmentTitle.text.toString(),
+                binding.assignmentDescription.text.toString(),
+                binding.assignmentClassCode.text.toString(),
+                end_date_selected ?: "No due date",
+                time ?: "No due time",
             ) { isAdded ->
                 if (isAdded) {
                     Toast.makeText(requireActivity(), "Assignment added", Toast.LENGTH_SHORT).show()

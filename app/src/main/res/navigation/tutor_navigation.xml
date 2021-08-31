@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/tutorHomeFragment"
         android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.TutorHomeFragment"
-        android:label="fragment_tutor_home"
+        android:label="Home"
         tools:layout="@layout/fragment_tutor_home" >
         <action
             android:id="@+id/action_tutorHomeFragment_to_addClassroomFragment"
@@ -19,16 +19,19 @@
         <action
             android:id="@+id/action_tutorHomeFragment_to_addAssignmentFragment"
             app:destination="@id/addAssignmentFragment" />
+        <action
+            android:id="@+id/action_tutorHomeFragment_to_tutorClassroomFragment"
+            app:destination="@id/tutorClassroomFragment" />
     </fragment>
     <fragment
         android:id="@+id/tutorDashBoardFragment"
         android:name="com.killerinstinct.studydesk.ui.tutor.drawer.dashboard.TutorDashBoardFragment"
-        android:label="fragment_tutor_dash_board"
+        android:label="Dashboard"
         tools:layout="@layout/fragment_tutor_dash_board" />
     <fragment
         android:id="@+id/addClassroomFragment"
         android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.AddClassroomFragment"
-        android:label="fragment_add_classroom"
+        android:label="Add Classroom"
         tools:layout="@layout/fragment_add_classroom" >
         <action
             android:id="@+id/action_addClassroomFragment_to_tutorHomeFragment"
@@ -37,11 +40,33 @@
     <fragment
         android:id="@+id/addAssignmentFragment"
         android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.AddAssignmentFragment"
-        android:label="fragment_add_assignment"
-        tools:layout="@layout/fragment_add_assignment" />
+        android:label="Add Assignment"
+        tools:layout="@layout/fragment_add_assignment" >
+        <action
+            android:id="@+id/action_addAssignmentFragment_to_tutorHomeFragment2"
+            app:destination="@id/tutorHomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addTestFragment"
         android:name="com.killerinstinct.studydesk.ui.tutor.drawer.home.AddTestFragment"
-        android:label="fragment_add_test"
-        tools:layout="@layout/fragment_add_test" />
+        android:label="Add Test"
+        tools:layout="@layout/fragment_add_test" >
+        <action
+            android:id="@+id/action_addTestFragment_to_tutorHomeFragment"
+            app:destination="@id/tutorHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tutorClassroomFragment"
+        android:name="com.killerinstinct.studydesk.ui.tutor.classroom.TutorClassroomFragment"
+        android:label="fragment_tutor_classroom"
+        tools:layout="@layout/fragment_tutor_classroom" >
+        <argument
+            android:name="adapterPosition"
+            app:argType="string"
+            android:defaultValue="NULL" />
+        <argument
+            android:name="classRoomName"
+            app:argType="string"
+            android:defaultValue="NULL" />
+    </fragment>
 </navigation>

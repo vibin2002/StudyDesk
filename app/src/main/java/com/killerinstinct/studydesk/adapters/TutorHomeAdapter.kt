@@ -10,12 +10,15 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.data.models.ClassRoom
+import com.killerinstinct.studydesk.ui.student.drawer.home.StudentHomeFragmentDirections
+import com.killerinstinct.studydesk.ui.tutor.drawer.home.TutorHomeFragmentDirections
 
 class TutorHomeAdapter(
-
+    private val navController: NavController,
     private var list:List<ClassRoom>,
     private val context: Context
 ): RecyclerView.Adapter<TutorHomeAdapter.TutorHomeViewHolder>() {
@@ -30,6 +33,10 @@ class TutorHomeAdapter(
     }
 
     override fun onBindViewHolder(holder: TutorHomeAdapter.TutorHomeViewHolder, position: Int) {
+        holder.itemView.setOnClickListener{
+            val action = TutorHomeFragmentDirections.actionTutorHomeFragmentToTutorClassroomFragment(list[position].code)
+            navController.navigate(action)
+        }
         holder.class_name.text=list[position].className
         holder.tutorName.text=list[position].tutor
         holder.subject_name.text=list[position].subject

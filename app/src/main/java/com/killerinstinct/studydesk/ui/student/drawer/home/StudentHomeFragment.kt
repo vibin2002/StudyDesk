@@ -40,7 +40,7 @@ class StudentHomeFragment : Fragment(R.layout.fragment_student_home) {
     private fun setupRecyclerView(classRoomList: List<ClassRoom>) {
         binding.stdHomeRv.apply {
             layoutManager= LinearLayoutManager(context)
-            adapter= StudentHomeAdapter(classRoomList,requireActivity())
+            adapter= StudentHomeAdapter(findNavController(),classRoomList,requireActivity())
         }
     }
 

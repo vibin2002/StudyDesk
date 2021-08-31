@@ -1,5 +1,6 @@
 package com.killerinstinct.studydesk.ui.tutor
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -17,6 +18,7 @@ import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.ActivityTutorMainBinding
 import com.killerinstinct.studydesk.databinding.NavHeaderStudentMainBinding
 import com.killerinstinct.studydesk.databinding.NavHeaderTutorMainBinding
+import com.killerinstinct.studydesk.ui.EntryActivity
 
 class TutorMainActivity : AppCompatActivity() {
 
@@ -72,6 +74,9 @@ class TutorMainActivity : AppCompatActivity() {
                 return true
             }
             R.id.item_logout -> {
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this,EntryActivity::class.java))
+                finish()
                 return true
             }
 

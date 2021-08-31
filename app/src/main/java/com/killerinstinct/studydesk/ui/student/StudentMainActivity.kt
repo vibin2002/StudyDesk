@@ -1,7 +1,9 @@
 package com.killerinstinct.studydesk.ui.student
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -15,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.killerinstinct.studydesk.R
 import com.killerinstinct.studydesk.databinding.ActivityStudentMainBinding
 import com.killerinstinct.studydesk.databinding.NavHeaderStudentMainBinding
+import com.killerinstinct.studydesk.ui.EntryActivity
 
 class StudentMainActivity : AppCompatActivity() {
 
@@ -54,6 +57,16 @@ class StudentMainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.student_main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (item.itemId == R.id.action_std_logout) {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, EntryActivity::class.java))
+            finish()
+            true
+        } else super.onOptionsItemSelected(item)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

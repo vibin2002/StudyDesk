@@ -38,12 +38,12 @@ class AddTestFragment : Fragment(R.layout.fragment_add_test)
         binding.btnAdd.setOnClickListener{
             val navController = findNavController()
             viewModel.addTest(
-                "Title",
-                "Descrpfowenf",
-                "DSA",
-                "rOZ3S2",
-                "123456",
-                "09:12",
+                binding.testTitle.text.toString(),
+                binding.testDescription.text.toString(),
+                "DSA",  // TODO()
+                binding.testClassCode.text.toString(),
+                end_date_selected ?: "No due date",
+                time ?: "No due time",
             )
             { isAdded ->
                 if (isAdded)
